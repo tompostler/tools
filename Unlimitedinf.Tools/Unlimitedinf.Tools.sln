@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F362E671-015F-475E-BBA9-E387CB8EB952}"
 	ProjectSection(SolutionItems) = preProject
 		noglob.ruleset = noglob.ruleset
+		signingkey.pfx = signingkey.pfx
 	EndProjectSection
 EndProject
 Global
