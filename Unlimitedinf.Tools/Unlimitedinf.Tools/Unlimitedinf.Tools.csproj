@@ -48,7 +48,10 @@
     <Compile Include="GenerateRandom.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IO\ThrottledStream.cs" />
+    <Compile Include="Numerics\Int32\Int32Extensions.cs" />
+    <Compile Include="Numerics\Int64\Int64Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Statics\Numerics\Primes.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx" />
