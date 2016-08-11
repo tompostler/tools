@@ -63,12 +63,12 @@
         }
 
         /// <summary>
-        /// Checks if a digit is within a number.
+        /// Checks if a digit is within a number >0.
         /// </summary>
         /// <param name="number"></param>
         /// <param name="containingDigit"></param>
         /// <returns></returns>
-        public static bool ContainsDigit(this long number, long containingDigit)
+        public static bool ContainsDigit(this long number, int containingDigit)
         {
             while (number > 0)
             {
