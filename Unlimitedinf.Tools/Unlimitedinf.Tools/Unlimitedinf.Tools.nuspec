@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>0.1.0</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/tompostler/tools/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tompostler/tools</projectUrl>
+    <iconUrl>https://unlimitedinf.com/files/unlimitedinf/unlimitedinf.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
+    <copyright>Copyright 2016 UnlimitedInf</copyright>
+    <tags>tools</tags>
+  </metadata>
+</package>
