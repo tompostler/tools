@@ -27,17 +27,16 @@
 
             foreach (int prime in Primes.Ordered)
             {
+                // We've exhausted the possible factors of our number
                 if (prime > boundary)
                     return true;
+                // Found a factor
                 if (number % prime == 0)
                     return false;
             }
 
-            for (int i = Primes.Max + 2; i <= boundary; i += 2)
-                if (number % i == 0)
-                    return false;
-
-            return true;
+            // This shouldn't be hit due to int32 limits (would require a prime >1e12)
+            throw new ArgumentOutOfRangeException(nameof(number));
         }
 
         /// <summary>
@@ -140,11 +139,8 @@
                 if (prime > boundary || number % prime == 0)
                     return prime;
 
-            for (int i = Primes.Max + 2; i <= boundary; i += 2)
-                if (number % i == 0)
-                    return i;
-
-            return number;
+            // This shouldn't be hit due to int32 limits (would require a prime >1e12)
+            throw new ArgumentOutOfRangeException(nameof(number));
         }
 
         /// <summary>
@@ -189,11 +185,6 @@
             // All digits from 1 through length should be true
             for (int i = 1; i <= length; i++)
                 if (!digits[i])
-                    return false;
-
-            // Rest of digits after length should be false
-            for (int i = length + 1; i < 10; i++)
-                if (digits[i])
                     return false;
 
             // Must have succeeded
@@ -261,9 +252,11 @@
         /// <returns></returns>
         public static int GCD(this int number, int otherNumber)
         {
+            // Well proven algorithm, so not tested.
+            int t = otherNumber;
             while (otherNumber != 0)
             {
-                int t = otherNumber;
+                t = otherNumber;
                 otherNumber = number % otherNumber;
                 number = t;
             }
@@ -297,18 +290,17 @@
         /// <summary>
         /// Checks if a digit is within a number.
         /// </summary>
-        /// <example>4.IsDigitIn(92875) == false</example>
         /// <param name="number"></param>
-        /// <param name="containingDigit"></param>
+        /// <param name="containingNumber"></param>
         /// <returns></returns>
-        public static bool ContainsDigit(this int number, int containingDigit)
+        public static bool IsDigitIn(this int number, int containingNumber)
         {
-            while (number > 0)
+            while (containingNumber > 0)
             {
-                int digit = number % 10;
-                if (digit == containingDigit)
+                int digit = containingNumber % 10;
+                if (digit == number)
                     return true;
-                number /= 10;
+                containingNumber /= 10;
             }
 
             // Must not be contained
@@ -333,6 +325,7 @@
         /// <returns></returns>
         public static bool IsSquare(this int number)
         {
+            // Not worth testing.
             double check = Math.Sqrt(number);
             return check == (int)check;
         }

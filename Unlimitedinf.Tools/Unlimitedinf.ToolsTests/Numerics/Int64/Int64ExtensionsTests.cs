@@ -7,6 +7,19 @@
     public class Int64ExtensionsTests
     {
         [TestMethod]
+        public void IsPrimeTest()
+        {
+            long[] successes = new long[] { 2, 3, 5, 101, 15485867, 2000000000003 };
+            long[] failures = new long[] { 9, 42, 100, 999, 123456789, 2000000000371 };
+
+            foreach (long success in successes)
+                Assert.IsTrue(success.IsPrime(), success.ToString());
+
+            foreach (long failure in failures)
+                Assert.IsFalse(failure.IsPrime(), failure.ToString());
+        }
+
+        [TestMethod]
         public void IsPalindromeTest()
         {
             long[] successes = new long[] { 1, 11, 121, 8579521540451259758 };
@@ -17,6 +30,16 @@
 
             foreach (long failure in failures)
                 Assert.IsFalse(failure.IsPalindrome(), failure.ToString());
+        }
+
+        [TestMethod]
+        public void GetSmallestFactorTest()
+        {
+            long[] testNums = { 2, 3, 5, 9, 42, 100, 101, 999, 123456789, 2000000000003, 2000000000371 };
+            long[] expectedResults = { 2, 3, 5, 3, 2, 2, 101, 3, 3, 2000000000003, 1301591 };
+
+            for (int i = 0; i < testNums.Length; i++)
+                Assert.AreEqual(expectedResults[i], testNums[i].GetSmallestFactor(), $"{testNums[i]}");
         }
 
         [TestMethod]

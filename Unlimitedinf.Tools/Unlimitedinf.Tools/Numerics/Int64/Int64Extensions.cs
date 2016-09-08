@@ -1,10 +1,47 @@
 ﻿namespace Unlimitedinf.Tools.Numerics.Int64
 {
+    using System;
+    using Unlimitedinf.Tools.Statics.Numerics;
+
     /// <summary>
     /// Extensions for the mighty Int64. If it says >0, then it does not check for &lt;0.
     /// </summary>
     public static class Int64Extensions
     {
+        /// <summary>
+        /// Checks if integers >0 are prime.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static bool IsPrime(this long number)
+        {
+            if (number == 2)
+                return true;
+            if (number == 1 || number % 2 == 0)
+                return false;
+            if (number < Primes.Max)
+                return Primes.Unordered.Contains((int)number);
+
+            long boundary = (long)Math.Ceiling(Math.Sqrt(number));
+
+            if (boundary <= Primes.Max)
+                foreach (int prime in Primes.Ordered)
+                {
+                    // We've exhausted the possible factors of our number
+                    if (prime > boundary)
+                        return true;
+                    // Found a factor
+                    if (number % prime == 0)
+                        return false;
+                }
+
+            for (long i = Primes.Max + 2; i <= boundary; i += 2)
+                if (number % i == 0)
+                    return false;
+
+            return true;
+        }
+
         /// <summary>
         /// Checks if integers &gt;0 are palindomatic.
         /// </summary>
@@ -22,6 +59,35 @@
             }
 
             return rev == orig;
+        }
+
+        /// <summary>
+        /// Gets the smallest factor (other than 1) of an integer >1.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static long GetSmallestFactor(this long number)
+        {
+            if (number % 2 == 0)
+                return 2;
+            if (number < Primes.Max && Primes.Unordered.Contains((int)number))
+                return number;
+
+            long boundary = (long)Math.Floor(Math.Sqrt(number));
+
+            if (boundary <= Primes.Max)
+                foreach (int prime in Primes.Ordered)
+                    if (prime > boundary || number % prime == 0)
+                        return prime;
+
+            for (long i = Primes.Max + 2; i <= boundary; i += 2)
+                if (number % i == 0)
+                    return i;
+
+            return number;
+
+            // This shouldn't be hit due to int32 limits (would require a prime >1e12)
+            throw new ArgumentOutOfRangeException();
         }
 
         /// <summary>

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
@@ -11,7 +11,7 @@
     <iconUrl>https://unlimitedinf.com/files/unlimitedinf/unlimitedinf.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
+    <releaseNotes>BigIntExtensions and better code coverage with tests.</releaseNotes>
     <copyright>Copyright 2016 UnlimitedInf</copyright>
     <tags>tools</tags>
   </metadata>

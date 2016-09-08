@@ -53,6 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="GenerateRandomTests.cs" />
+    <Compile Include="Numerics\Int32\Int32ExtensionsTests.cs" />
     <Compile Include="Numerics\Int64\Int64ExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
