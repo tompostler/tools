@@ -44,12 +44,17 @@
     <AssemblyOriginatorKeyFile>..\signingkey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenerateRandom.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Id.cs" />
     <Compile Include="IO\ThrottledStream.cs" />
     <Compile Include="Numerics\BigInt\BigIntegerExtensions.cs" />
     <Compile Include="Numerics\Int32\Int32Extensions.cs" />
@@ -61,6 +66,7 @@
     <EmbeddedResource Include="Properties\Resources.resx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="nugetpush.ps1" />
     <None Include="packages.config" />
     <None Include="Resources\unlimitedinf.ico" />
     <None Include="Unlimitedinf.Tools.nuspec">

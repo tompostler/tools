@@ -35,7 +35,7 @@ using System;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // Major and minor are kept in sync with nuget package. Let .net do the rest.
-[assembly: AssemblyVersion("0.1.*")]
+[assembly: AssemblyVersion("0.3.*")]
 [assembly: NeutralResourcesLanguage("en")]
 [assembly: InternalsVisibleTo("Unlimitedinf.Tools.Tests, PublicKey=002400000480000094000000060200000024000052534131000400000100010021f5d5005116e70b9f34c5990e6a7f5431ad01a9133998e1f162713a904bbe62a2dcecf695eb3a9a41e6d208e235af73449812c664f9d1e92f967057bbd039fadadf21d036881820eaa143edef43a41eed44e0bb1b500e691ae1f16321d57c36d60a6b7447b35b3714c3006386aa40df375f6002b2346d1435acfcbf961c62e5")]
 
