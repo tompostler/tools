@@ -70,6 +70,24 @@
         }
 
         [TestMethod]
+        public void ContainsSameExactDigitsTest()
+        {
+            long[] testNums =
+            {
+                1, 2, 3, 4, 4, 1234, 3241, 12334, 12344, 567, 765, 566, 123456789000, 987654321000, 998765432100,
+                9998765432100
+            };
+            bool[] expectedResults =
+            {
+                false, false, false, true, false, true, false, false, false, true, false, false, true, false, false
+            };
+
+            for (int i = 0; i < testNums.Length - 1; i++)
+                Assert.AreEqual(expectedResults[i], testNums[i].ContainsSameExactDigits(testNums[i + 1]),
+                    $"{testNums[i]}.ContainsSameExactDigits{testNums[i + 1]}");
+        }
+
+        [TestMethod]
         public void ContainsDigitTest()
         {
             long[] successes = new long[] { 10, 1, 564843315254, 33333333333, 400000000000, 1111111511 };
@@ -105,7 +123,7 @@
             };
 
             for (int i = 1; i < values.Length; i++)
-                Assert.AreEqual(long.Parse($"{values[i-1]}{values[i]}"), values[i-1].Concat(values[i]));
+                Assert.AreEqual(long.Parse($"{values[i - 1]}{values[i]}"), values[i - 1].Concat(values[i]));
         }
     }
 }

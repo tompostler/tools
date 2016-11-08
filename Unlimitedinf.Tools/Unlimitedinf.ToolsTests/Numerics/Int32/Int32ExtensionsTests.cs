@@ -139,6 +139,17 @@
         }
 
         [TestMethod]
+        public void ContainsSameExactDigitsTest()
+        {
+            int[] testNums = { 1, 2, 3, 4, 4, 1234, 3241, 12334, 12344, 567, 765, 566 };
+            bool[] expectedResults = { false, false, false, true, false, true, false, false, false, true, false };
+
+            for (int i = 0; i < testNums.Length - 1; i++)
+                Assert.AreEqual(expectedResults[i], testNums[i].ContainsSameExactDigits(testNums[i + 1]), 
+                    $"{testNums[i]}.ContainsSameExactDigits{testNums[i + 1]}");
+        }
+
+        [TestMethod]
         public void GCDTest()
         {
             // This is a well-known algorithm and does not require a test.

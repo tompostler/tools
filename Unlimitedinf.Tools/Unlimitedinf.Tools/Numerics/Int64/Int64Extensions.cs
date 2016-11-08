@@ -129,6 +129,42 @@
         }
 
         /// <summary>
+        /// Two integers contain the same exact digits if they are permutations of each other.
+        /// </summary>
+        /// <example>4187.ContainsSameExactDigits(8147) == true</example>
+        /// <param name="number"></param>
+        /// <param name="otherNumber"></param>
+        /// <returns></returns>
+        public static bool ContainsSameExactDigits(this long number, long otherNumber)
+        {
+            if (number.Length() != otherNumber.Length())
+                return false;
+
+            int[] numDigits = new int[10];
+            int[] othDigits = new int[10];
+
+            while (number > 0)
+            {
+                int digit = (int)(number % 10);
+                numDigits[digit]++;
+                number /= 10;
+            }
+            while (otherNumber > 0)
+            {
+                int digit = (int)(otherNumber % 10);
+                othDigits[digit]++;
+                otherNumber /= 10;
+            }
+
+            for (int i = 0; i < 10; i++)
+                if (numDigits[i] != othDigits[i])
+                    return false;
+
+            // Must have succeeded
+            return true;
+        }
+
+        /// <summary>
         /// Checks if a digit is within a number >0.
         /// </summary>
         /// <param name="number"></param>
