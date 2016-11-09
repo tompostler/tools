@@ -1,4 +1,4 @@
-﻿namespace UnlimitedInf.Tools.Numerics.Int32.Tests
+﻿namespace Unlimitedinf.Tools.Numerics.Int32.Tests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Collections.Generic;

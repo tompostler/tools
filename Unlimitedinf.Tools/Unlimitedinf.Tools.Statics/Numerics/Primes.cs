@@ -5,7 +5,7 @@
     /// <summary>
     /// A class containing statically-initialized values for the primes below one million.
     /// </summary>
-    internal static class Primes
+    public static class Primes
     {
         /// <summary>
         /// Make sure only one thing at a time is trying to write to objects in this class.
@@ -5946,13 +5946,13 @@
         /// <summary>
         /// Contains the primes below 1,000,000 in a sorted <see cref="int[]"/>.
         /// </summary>
-        internal static int[] Ordered => _Ordered;
+        public static int[] Ordered => _Ordered;
 
         private static HashSet<int> _Unordered = null;
         /// <summary>
         /// Contains the primes below 1,000,000 in an unsorted <see cref="HashSet{T}"/>.
         /// </summary>
-        internal static HashSet<int> Unordered
+        public static HashSet<int> Unordered
         {
             get
             {
@@ -5965,6 +5965,6 @@
             }
         }
 
-        internal const int Max = 1000003;
+        public const int Max = 1000003;
     }
 }

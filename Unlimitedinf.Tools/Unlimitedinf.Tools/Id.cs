@@ -64,6 +64,7 @@
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="FormatException"></exception>
         /// <exception cref="OverflowException"></exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
         public Id(string id) : this(uint.Parse(id.TrimStart('0'), System.Globalization.NumberStyles.HexNumber)) { }
 
         /// <summary>
