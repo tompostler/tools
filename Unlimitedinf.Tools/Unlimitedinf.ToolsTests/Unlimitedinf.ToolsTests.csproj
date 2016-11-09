@@ -56,6 +56,7 @@
     <Compile Include="Numerics\Int32\Int32ExtensionsTests.cs" />
     <Compile Include="Numerics\Int64\Int64ExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SemVerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj">

@@ -149,9 +149,9 @@
             return ((uint)this).CompareTo((uint)other);
         }
 
-        public override bool Equals(object o)
+        public override bool Equals(object obj)
         {
-            Id other = (Id)o;
+            Id other = (Id)obj;
 
             return this._data == other._data;
         }
