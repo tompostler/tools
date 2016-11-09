@@ -73,9 +73,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\unlimitedinf.ico">
+    <None Include="..\unlimitedinf.ico">
       <Link>unlimitedinf.ico</Link>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.csproj">
@@ -94,7 +94,7 @@
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
     <!-- Only download a new copy of nuget.exe if we don't have a copy available -->
     <WebDownload Condition="!Exists('nuget.exe')" Filename="nuget.exe" FileUri="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" />
-    <Exec Command="nuget pack $(ProjectFileName) -Prop Configuration=Release -Prop Platform=AnyCPU -includereferencedprojects">
+    <Exec Command="nuget pack $(ProjectFileName) -Prop Configuration=Release -Prop Platform=AnyCPU -includereferencedprojects -exclude '*.ico'">
     </Exec>
   </Target>
 </Project>
