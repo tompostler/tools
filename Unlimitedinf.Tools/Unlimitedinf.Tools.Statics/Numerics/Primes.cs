@@ -5965,6 +5965,9 @@
             }
         }
 
+        /// <summary>
+        /// The maximum prime number contained in the primes block.
+        /// </summary>
         public const int Max = 1000003;
     }
 }
