@@ -4,9 +4,8 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System;
 
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
+// General Information about an assembly is controlled through the following set of attributes. Change these attribute
+// values to modify the information associated with an assembly.
 [assembly: AssemblyDescription("A collection of tools I have found useful across more than one C# project.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("UnlimitedInf")]
@@ -14,9 +13,8 @@ using System;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
+// Setting ComVisible to false makes the types in this assembly not visible to COM components. If you need to access a
+// type in this assembly from COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(true)]
 
@@ -30,8 +28,7 @@ using System;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
+// You can specify all the values or you can default the Build and Revision Numbers by using the '*' as shown below:
 // Major and minor are kept in sync with nuget package. Let .net do the rest.
 [assembly: AssemblyVersion("1.0.*")]
 [assembly: NeutralResourcesLanguage("en")]
