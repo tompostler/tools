@@ -106,6 +106,7 @@
         /// </summary>
         /// <param name="number"></param>
         /// <returns>List of prime factors, excluding 1 of course.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Justification = "This is an extension method.")]
         public static List<int> GetPrimeFactorization(this int number)
         {
             List<int> factors = new List<int>();
@@ -164,6 +165,7 @@
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Pandigital", Justification = "This is an extension method.")]
         public static bool IsPandigital(this int number)
         {
             bool[] digits = new bool[10];
@@ -286,6 +288,7 @@
         /// <param name="number"></param>
         /// <param name="otherNumber"></param>
         /// <returns></returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "GCD", Justification = "This is an extension method.")]
         public static int GCD(this int number, int otherNumber)
         {
             // Well proven algorithm, so not tested.
@@ -440,6 +443,7 @@
         /// <param name="number"></param>
         /// <param name="otherNumber"></param>
         /// <returns></returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2233:OperationsShouldNotOverflow", MessageId = "number*10", Justification = "This is an extension method.")]
         public static int Concat(this int number, int otherNumber)
         {
             int len = otherNumber.Length();

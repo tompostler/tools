@@ -11,6 +11,8 @@
     /// <see cref="http://www.michaelfcollins3.me/blog/2013/01/23/semantic_versioning_dotnet.html"/>.
     /// Based on semver version 2.0.0
     /// </remarks>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Sem", Justification = "Proper name.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Ver", Justification = "Proper name.")]
     public class SemVer : IComparable, IComparable<SemVer>, IEquatable<SemVer>
     {
         public int Major { get; private set; }
@@ -345,7 +347,7 @@
                 && this.Minor == other.Minor
                 && this.Patch == other.Patch
                 && this.Prerelease == other.Prerelease;
-                //&& this.Build.Equals(other.Build);
+            //&& this.Build.Equals(other.Build);
         }
 
         public static bool operator ==(SemVer left, SemVer right)

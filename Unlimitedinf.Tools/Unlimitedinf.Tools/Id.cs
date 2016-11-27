@@ -22,7 +22,9 @@
         /// Ctor.
         /// </summary>
         /// <param name="id"></param>
+#pragma warning disable CS3001 // Argument type is not CLS-compliant
         public Id(uint id)
+#pragma warning restore CS3001 // Argument type is not CLS-compliant
         {
             this._data = id;
         }
@@ -80,7 +82,9 @@
         /// Make it easier to work with an Id's formatting.
         /// </summary>
         /// <param name="id"></param>
+#pragma warning disable CS3002 // Return type is not CLS-compliant
         public static explicit operator uint(Id id)
+#pragma warning restore CS3002 // Return type is not CLS-compliant
         {
             return id._data;
         }
@@ -143,9 +147,9 @@
         /// <summary>
         /// A read-only instance of the <see cref="Id"/> structure whose value is all zeroes.
         /// </summary>
-        public static Id Empty = new Id(0);
+        public static readonly Id Empty = new Id(0);
 
-        int IComparable<Id>.CompareTo(Id other)
+        public int CompareTo(Id other)
         {
             return ((uint)this).CompareTo((uint)other);
         }
@@ -164,6 +168,16 @@
         public static bool operator !=(Id left, Id right)
         {
             return !left.Equals(right);
+        }
+
+        public static bool operator <(Id left, Id right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        public static bool operator >(Id left, Id right)
+        {
+            return left.CompareTo(right) > 0;
         }
 
         public override int GetHashCode()
