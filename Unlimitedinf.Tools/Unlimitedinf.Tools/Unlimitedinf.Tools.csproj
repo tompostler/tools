@@ -49,12 +49,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Extensions.cs" />
     <Compile Include="GenerateRandom.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Hashing\Blockhash.cs" />

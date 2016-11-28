@@ -1,6 +1,7 @@
 ﻿namespace Unlimitedinf.Tools.Hashing
 {
     using System;
+    using System.IO;
     using System.Security.Cryptography;
 
     /// <summary>
@@ -86,6 +87,27 @@
                     this.hashAlgorithm = SHA512.Create();
                     break;
             }
+        }
+
+        /// <summary>
+        /// Compute the hash from a given stream.
+        /// </summary>
+        /// <param name="inputStream"></param>
+        /// <returns></returns>
+        public byte[] ComputeHash(Stream inputStream)
+        {
+            return this.hashAlgorithm.ComputeHash(inputStream);
+        }
+
+        /// <summary>
+        /// Compute the hash from a given stream and return it as a string.
+        /// </summary>
+        /// <param name="inputStream"></param>
+        /// <returns></returns>
+        public string ComputeHashS(Stream inputStream)
+        {
+            byte[] hash = this.hashAlgorithm.ComputeHash(inputStream);
+            return BitConverter.ToString(hash).Replace("-", "");
         }
     }
 }

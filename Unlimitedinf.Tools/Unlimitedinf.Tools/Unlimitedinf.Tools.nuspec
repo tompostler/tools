@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
@@ -11,7 +11,7 @@
     <iconUrl>https://unlimitedinf.com/files/unlimitedinf/unlimitedinf.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Added SemVer and broke Statics into its own DLL; removed icon from nuget package.</releaseNotes>
+    <releaseNotes>Added Hashing.</releaseNotes>
     <copyright>Copyright 2016 UnlimitedInf</copyright>
     <tags>tools</tags>
   </metadata>
