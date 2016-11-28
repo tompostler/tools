@@ -96,7 +96,11 @@
         /// <returns></returns>
         public byte[] ComputeHash(Stream inputStream)
         {
-            return this.hashAlgorithm.ComputeHash(inputStream);
+            // Temporary workaround warranting further investigation.
+            if (this.algorithm == Algorithm.Blockhash)
+                return Blockhash.ComputeHash(inputStream);
+            else
+                return this.hashAlgorithm.ComputeHash(inputStream);
         }
 
         /// <summary>
@@ -106,13 +110,7 @@
         /// <returns></returns>
         public string ComputeHashS(Stream inputStream)
         {
-            byte[] hash;
-            // Temporary workaround warranting further investigation.
-            if (this.algorithm == Algorithm.Blockhash)
-                hash = Blockhash.ComputeHash(inputStream);
-            else
-                hash = this.hashAlgorithm.ComputeHash(inputStream);
-            return BitConverter.ToString(hash).Replace("-", "");
+            return BitConverter.ToString(this.ComputeHash(inputStream)).Replace("-", "");
         }
     }
 }

@@ -59,9 +59,9 @@ namespace Unlimitedinf.Tools.Hashing
 
         private static byte[] bits_to_bytes(int[] bits)
         {
-            byte[] result = new byte[bits.Length / 4 + 1];
+            byte[] result = new byte[bits.Length / 4];
             for (int i = 0; i < bits.Length; i += 4)
-                result[i] = (byte)((bits[i] << 3) + (bits[i + 1] << 2) + (bits[i + 2] << 1) + (bits[i + 3]));
+                result[i/4] = (byte)((bits[i] << 3) + (bits[i + 1] << 2) + (bits[i + 2] << 1) + (bits[i + 3]));
             return result;
         }
 
