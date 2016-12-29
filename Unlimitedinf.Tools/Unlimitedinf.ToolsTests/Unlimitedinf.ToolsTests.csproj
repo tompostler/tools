@@ -55,7 +55,9 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -63,8 +65,11 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="GenerateRandomTests.cs" />
     <Compile Include="AssemblySetup.cs" />
+    <Compile Include="Hashing\HashingTests.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="Numerics\Int32\Int32ExtensionsTests.cs" />
     <Compile Include="Numerics\Int64\Int64ExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,9 +84,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Hashing\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

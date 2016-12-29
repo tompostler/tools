@@ -22,6 +22,12 @@ namespace Unlimitedinf.Tools.Hashing
     /// Perceptual image hash calculation tool based on algorithm descibed in 
     /// Block Mean Value Based Image Perceptual Hashing by Bian Yang, Fan Gu and Xiamu Niu.
     /// </summary>
+    /// <remarks>
+    /// Due to the nature of Image files, I have not yet found a way to implement this in standard stream-based
+    /// processing methods. In that sense, this will load an entire image into memory from a stream. In fact, I'm
+    /// pretty sure it does it twice in order to properly implement the HashAlgorithm class. Finding a better way is
+    /// a TODO, but it works well enough for now.
+    /// </remarks>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Blockhash")]
     public sealed class Blockhash : HashAlgorithm
     {
@@ -59,9 +65,17 @@ namespace Unlimitedinf.Tools.Hashing
 
         private static byte[] bits_to_bytes(int[] bits)
         {
-            byte[] result = new byte[bits.Length / 4];
-            for (int i = 0; i < bits.Length; i += 4)
-                result[i/4] = (byte)((bits[i] << 3) + (bits[i + 1] << 2) + (bits[i + 2] << 1) + (bits[i + 3]));
+            byte[] result = new byte[bits.Length / 8];
+            for (int i = 0; i < bits.Length; i += 8)
+                result[i / 8] = (byte)(
+                    (bits[i] << 7)
+                    + (bits[i + 1] << 6)
+                    + (bits[i + 2] << 5)
+                    + (bits[i + 3] << 4)
+                    + (bits[i + 4] << 3)
+                    + (bits[i + 5] << 2)
+                    + (bits[i + 6] << 1)
+                    + (bits[i + 7]));
             return result;
         }
 
@@ -203,9 +217,9 @@ namespace Unlimitedinf.Tools.Hashing
             half_block_value = pixels_per_block * 256 * 3 / 2;
             bandsize = nblocks / 4;
 
+            int[] subblocks = new int[bandsize];
             for (i = 0; i < 4; i++)
             {
-                int[] subblocks = new int[bandsize];
                 Array.Copy(blocks, i * bandsize, subblocks, 0, bandsize);
                 m = (float)subblocks.Median();
                 for (j = i * bandsize; j < (i + 1) * bandsize; j++)
@@ -227,9 +241,9 @@ namespace Unlimitedinf.Tools.Hashing
             half_block_value = pixels_per_block * 256 * 3 / 2;
             bandsize = nblocks / 4;
 
+            float[] subblocks = new float[bandsize];
             for (i = 0; i < 4; i++)
             {
-                float[] subblocks = new float[bandsize];
                 Array.Copy(blocks, i * bandsize, subblocks, 0, bandsize);
                 m = (float)subblocks.Median();
                 for (j = i * bandsize; j < (i + 1) * bandsize; j++)
@@ -278,23 +292,26 @@ namespace Unlimitedinf.Tools.Hashing
                 throw new ArgumentNullException(nameof(image));
 
             byte[] image_data = ImageToRGBA(image);
+            int width = image.Width;
+            int height = image.Height;
+            image.Dispose();
 
             int[] hash;
 
             if (quick)
             {
-                hash = blockhash_quick(bits, image_data, image.Width, image.Height);
+                hash = blockhash_quick(bits, image_data, width, height);
             }
             else
             {
-                hash = blockhash(bits, image_data, image.Width, image.Height);
+                hash = blockhash(bits, image_data, width, height);
             }
 
             return bits_to_bytes(hash);
         }
 
         /// <summary>
-        /// Compute the hamming distances between two bit arrays.
+        /// Compute the hamming distances between two byte arrays.
         /// </summary>
         /// <param name="left"></param>
         /// <param name="right"></param>
@@ -312,7 +329,11 @@ namespace Unlimitedinf.Tools.Hashing
             for (int i = 0; i < left.Length; i++)
             {
                 int diff = left[i] ^ right[i];
-                count += ((diff >> 3) & 1)
+                count += ((diff >> 7) & 1)
+                    + ((diff >> 6) & 1)
+                    + ((diff >> 5) & 1)
+                    + ((diff >> 4) & 1)
+                    + ((diff >> 3) & 1)
                     + ((diff >> 2) & 1)
                     + ((diff >> 1) & 1)
                     + (diff & 1);
@@ -323,30 +344,41 @@ namespace Unlimitedinf.Tools.Hashing
 
         #region HashAlgorithm overrides and implmentation
 
+        private MemoryStream haImageData;
+
+        public Blockhash()
+        {
+            this.haImageData = new MemoryStream();
+        }
+
         public override void Initialize()
         {
-            throw new NotImplementedException();
+            this.haImageData.Dispose();
+            this.haImageData = new MemoryStream();
         }
 
         protected override void HashCore(byte[] array, int ibStart, int cbSize)
         {
-            throw new NotImplementedException();
+            this.haImageData.Write(array, ibStart, cbSize);
         }
 
         protected override byte[] HashFinal()
         {
-            throw new NotImplementedException();
+            this.haImageData.Seek(0, SeekOrigin.Begin);
+            return Blockhash.ComputeHash(this.haImageData);
         }
 
-        public static new HashAlgorithm Create()
+        new public static HashAlgorithm Create()
         {
             return new Blockhash();
         }
 
-        public static new byte[] ComputeHash(Stream inputStream)
+        new public static byte[] ComputeHash(Stream inputStream)
         {
             return ProcessImage(inputStream);
         }
+
+        public override int HashSize => 256;
 
         #endregion
     }
