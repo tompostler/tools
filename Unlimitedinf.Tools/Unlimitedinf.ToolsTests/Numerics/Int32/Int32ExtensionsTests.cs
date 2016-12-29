@@ -248,5 +248,19 @@
             for (int i = 0; i < testNums.Length - 1; i++)
                 Assert.AreEqual(expectedResults[i], testNums[i].Concat(i * 2), $"{testNums[i]}");
         }
+
+        [TestMethod]
+        public void SubNumberTest()
+        {
+            int[] expectedResults1 = { 1234567890, 234567890, 34567890, 4567890, 567890, 67890, 7890, 890, 90 };
+
+            for (int i = 0; i < expectedResults1.Length; i++)
+                Assert.AreEqual(expectedResults1[i], 1234567890.SubNumber(i), $"1234567890.SubNumber({i})");
+
+            int[] expectedResults2 = { 1, 23, 345, 4567, 56789 };
+
+            for (int i = 0; i < expectedResults2.Length; i++)
+                Assert.AreEqual(expectedResults2[i], 1234567890.SubNumber(i, i + 1), $"1234567890.SubNumber({i},{i + 1})");
+        }
     }
 }
