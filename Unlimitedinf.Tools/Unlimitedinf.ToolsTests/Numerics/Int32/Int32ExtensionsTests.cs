@@ -243,7 +243,7 @@
         [TestMethod]
         public void ConcatTest()
         {
-            int[] expectedResults = { 2, 32, 54, 96, 428, 10010, 10112, 99914 };
+            int[] expectedResults = { 20, 32, 54, 96, 428, 10010, 10112, 99914 };
 
             for (int i = 0; i < testNums.Length - 1; i++)
                 Assert.AreEqual(expectedResults[i], testNums[i].Concat(i * 2), $"{testNums[i]}");

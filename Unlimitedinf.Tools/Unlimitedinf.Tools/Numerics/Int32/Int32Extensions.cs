@@ -151,13 +151,27 @@
         /// <returns></returns>
         public static int Length(this int number)
         {
-            int count = 0;
-            while (number > 0)
-            {
-                count++;
-                number /= 10;
-            }
-            return count;
+            if (number % 10 == number)
+                return 1;
+            if (number % 100 == number)
+                return 2;
+            if (number % 1000 == number)
+                return 3;
+            if (number % 10000 == number)
+                return 4;
+            if (number % 100000 == number)
+                return 5;
+            if (number % 1000000 == number)
+                return 6;
+            if (number % 10000000 == number)
+                return 7;
+            if (number % 100000000 == number)
+                return 8;
+            if (number % 1000000000 == number)
+                return 9;
+            if (number % 10000000000 == number)
+                return 10;
+            return 0;
         }
 
         /// <summary>
@@ -460,7 +474,9 @@
         /// <returns></returns>
         public static int SubNumber(this int number, int startIndex)
         {
-            return int.Parse(number.ToString().Substring(startIndex));
+            if (startIndex == 0)
+                return number;
+            return number % 10.Pow(number.Length() - startIndex);
         }
 
         /// <summary>
@@ -472,7 +488,25 @@
         /// <returns></returns>
         public static int SubNumber(this int number, int startIndex, int length)
         {
-            return int.Parse(number.ToString().Substring(startIndex, length));
+            // Get the right starting position
+            number = number.SubNumber(startIndex);
+            // Then truncate to length
+            return number / 10.Pow(number.Length() - length);
+        }
+
+        /// <summary>
+        /// An equivalent of <see cref="Math.Pow(double, double)"/> but as an extension for Int32. Does not check for
+        /// overflow.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="power"></param>
+        /// <returns></returns>
+        public static int Pow(this int number, int power)
+        {
+            int result = 1;
+            for (int i = 0; i < power; i++)
+                result *= number;
+            return result;
         }
     }
 }
