@@ -460,33 +460,7 @@
         /// <returns></returns>
         public static int SubNumber(this int number, int startIndex)
         {
-            // Truncate the beginning
-            switch (startIndex)
-            {
-                case 0:
-                    return number;
-                case 1:
-                    return number % 1000000000;
-                case 2:
-                    return number % 100000000;
-                case 3:
-                    return number % 10000000;
-                case 4:
-                    return number % 1000000;
-                case 5:
-                    return number % 100000;
-                case 6:
-                    return number % 10000;
-                case 7:
-                    return number % 1000;
-                case 8:
-                    return number % 100;
-                case 9:
-                    return number % 10;
-                case 10:
-                default:
-                    return 0;
-            }
+            return int.Parse(number.ToString().Substring(startIndex));
         }
 
         /// <summary>
@@ -498,43 +472,7 @@
         /// <returns></returns>
         public static int SubNumber(this int number, int startIndex, int length)
         {
-            number = number.SubNumber(startIndex).Reverse();
-
-            // Truncate the end
-            switch (length)
-            {
-                case 1:
-                    number %= 10;
-                    break;
-                case 2:
-                    number %= 100;
-                    break;
-                case 3:
-                    number %= 1000;
-                    break;
-                case 4:
-                    number %= 10000;
-                    break;
-                case 5:
-                    number %= 100000;
-                    break;
-                case 6:
-                    number %= 1000000;
-                    break;
-                case 7:
-                    number %= 10000000;
-                    break;
-                case 8:
-                    number %= 100000000;
-                    break;
-                case 9:
-                    number %= 1000000000;
-                    break;
-                case 0:
-                default:
-                    return 0;
-            }
-            return number.Reverse();
+            return int.Parse(number.ToString().Substring(startIndex, length));
         }
     }
 }
