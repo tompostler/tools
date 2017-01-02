@@ -97,13 +97,43 @@
         /// <returns></returns>
         public static int Length(this long number)
         {
-            int count = 0;
-            while (number > 0)
-            {
-                count++;
-                number /= 10;
-            }
-            return count;
+            if (number % 10 == number)
+                return 1;
+            if (number % 100 == number)
+                return 2;
+            if (number % 1000 == number)
+                return 3;
+            if (number % 10000 == number)
+                return 4;
+            if (number % 100000 == number)
+                return 5;
+            if (number % 1000000 == number)
+                return 6;
+            if (number % 10000000 == number)
+                return 7;
+            if (number % 100000000 == number)
+                return 8;
+            if (number % 1000000000 == number)
+                return 9;
+            if (number % 10000000000 == number)
+                return 10;
+            if (number % 100000000000 == number)
+                return 11;
+            if (number % 1000000000000 == number)
+                return 12;
+            if (number % 10000000000000 == number)
+                return 13;
+            if (number % 100000000000000 == number)
+                return 14;
+            if (number % 1000000000000000 == number)
+                return 15;
+            if (number % 10000000000000000 == number)
+                return 16;
+            if (number % 100000000000000000 == number)
+                return 17;
+            if (number % 1000000000000000000 == number)
+                return 18;
+            return 0;
         }
 
         /// <summary>
@@ -220,6 +250,54 @@
             for (int i = 0; i < len; i++)
                 number *= 10;
             return number + otherNumber;
+        }
+
+        /// <summary>
+        /// An equivalent of <see cref="Math.Pow(double, double)"/> but as an extension for Int64. Does not check for
+        /// overflow.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="power"></param>
+        /// <returns></returns>
+        public static long Pow(this long number, int power)
+        {
+            long result = 1;
+            for (int i = 0; i < power; i++)
+                result *= number;
+            return result;
+        }
+
+        /// <summary>
+        /// Count the number of digits in a number. Makes it so that one can easily store and sort to see if numbers
+        /// contain the exact same digits.
+        /// </summary>
+        /// <remarks>
+        /// Basically, each nibble represents the count of one digit. So 0xA0 could be for 1,111,111,111. Leading
+        /// zeroes are not counted.
+        /// </remarks>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static long DigitHash(this long number)
+        {
+            long[] numDigits = new long[10];
+
+            while (number > 0)
+            {
+                long digit = number % 10;
+                numDigits[digit]++;
+                number /= 10;
+            }
+
+            return numDigits[9] << 36
+                | numDigits[8] << 32
+                | numDigits[7] << 28
+                | numDigits[6] << 24
+                | numDigits[5] << 20
+                | numDigits[4] << 16
+                | numDigits[3] << 12
+                | numDigits[2] << 8
+                | numDigits[1] << 4
+                | numDigits[0];
         }
     }
 }
