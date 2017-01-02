@@ -7,8 +7,6 @@
     [TestClass]
     public class Int32ExtensionsTests
     {
-        readonly int[] testNums = { 2, 3, 5, 9, 42, 100, 101, 999, 123456789 };
-
         [TestMethod]
         public void IsPrimeTest()
         {
@@ -262,5 +260,16 @@
             for (int i = 0; i < expectedResults2.Length; i++)
                 Assert.AreEqual(expectedResults2[i], 1234567890.SubNumber(i, i + 1), $"1234567890.SubNumber({i},{i + 1})");
         }
+
+        [TestMethod]
+        public void DigitHashTest()
+        {
+            long[] expectedResults = { 0x100, 0x1000, 0x100000, 0x1000000000, 0x10100, 0x12, 0x21, 0x3000000000, 0x1111111110 };
+
+            for (int i = 0; i < testNums.Length - 1; i++)
+                Assert.AreEqual(expectedResults[i], testNums[i].DigitHash(), $"{testNums[i]}");
+        }
+
+        readonly int[] testNums = { 2, 3, 5, 9, 42, 100, 101, 999, 123456789 };
     }
 }

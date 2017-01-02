@@ -508,5 +508,38 @@
                 result *= number;
             return result;
         }
+
+        /// <summary>
+        /// Count the number of digits in a number. Makes it so that one can easily store and sort to see if numbers
+        /// contain the exact same digits.
+        /// </summary>
+        /// <remarks>
+        /// Basically, each nibble represents the count of one digit. So 0xA0 could be for 1,111,111,111. Leading
+        /// zeroes are not counted.
+        /// </remarks>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static long DigitHash(this int number)
+        {
+            long[] numDigits = new long[10];
+
+            while (number > 0)
+            {
+                int digit = number % 10;
+                numDigits[digit]++;
+                number /= 10;
+            }
+
+            return numDigits[9] << 36
+                | numDigits[8] << 32
+                | numDigits[7] << 28
+                | numDigits[6] << 24
+                | numDigits[5] << 20
+                | numDigits[4] << 16
+                | numDigits[3] << 12
+                | numDigits[2] << 8
+                | numDigits[1] << 4
+                | numDigits[0];
+        }
     }
 }
