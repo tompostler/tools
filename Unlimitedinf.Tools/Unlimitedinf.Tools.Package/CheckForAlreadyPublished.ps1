@@ -9,5 +9,7 @@ $repo = [NuGet.PackageRepositoryFactory]::Default.CreateRepository("https://pack
 
 # Check if current version is already published
 if (($repo.FindPackagesById("Unlimitedinf.Tools") | ? {$_.Version -eq $version} | Measure-Object).Count -eq 1) {
-    Write-Error "Nuget package Unlimitedinf.Tools.$version already published.";
+    $msg = "Nuget package Unlimitedinf.Tools.$version already published.";
+    Write-Host $msg;
+    Write-Error $msg;
 }
