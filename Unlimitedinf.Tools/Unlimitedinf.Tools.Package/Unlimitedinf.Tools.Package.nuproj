@@ -37,5 +37,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj" />
   </ItemGroup>
-  <Import Project="$(NuProjPath)\NuProj.targets" />
+  <Import Project="$(NuProjPath)\NuProj.targets" Condition="Exists('$(NuProjPath)\NuProj.targets')" />
 </Project>

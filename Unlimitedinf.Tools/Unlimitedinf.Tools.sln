@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		AssemblyInfo.cs = AssemblyInfo.cs
 		noglob.ruleset = noglob.ruleset
 		..\README.md = ..\README.md
-		signingkey.pfx = signingkey.pfx
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.ToolsTests", "Unlimitedinf.ToolsTests\Unlimitedinf.ToolsTests.csproj", "{A03E19C8-CA03-4DD7-95BE-5E1DEE5EE7DA}"

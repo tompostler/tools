@@ -37,12 +37,6 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\noglob.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\signingkey.pfx</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -86,5 +80,5 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\NuProj.Common.0.11.14-beta\build\dotnet\NuProj.Common.targets" />
+  <Import Project="..\packages\NuProj.Common.0.11.14-beta\build\dotnet\NuProj.Common.targets" Condition="Exists('..\packages\NuProj.Common.0.11.14-beta\build\dotnet\NuProj.Common.targets')" />
 </Project>
