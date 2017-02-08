@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.IO;
     using Tools.Hashing;
+    using System.Linq;
 
     [TestClass]
     public class HashingTests
@@ -54,7 +55,34 @@
         [TestMethod]
         public void BlockhashHammingDistanceTest()
         {
-            Assert.Inconclusive();
+            List<string> hashes = new List<string>
+            {
+                "deadbeef",
+                "f00fba11",
+                "42133742",
+                "beefca47"
+            };
+
+            int[][] expectedHammingDistances = new int[][]
+            {
+                new int[]{ 0, 15, 18, 11 },
+                new int[]{ 0, 15, 14 },
+                new int[]{ 0, 21 },
+                new int[]{ 0 }
+            };
+
+            for (int i = 0; i < hashes.Count; i++)
+                for (int j = i; j < hashes.Count; j++)
+                {
+                    string left = hashes[i];
+                    string right = hashes[j];
+                    Assert.AreEqual(
+                        expectedHammingDistances[i][j - i],
+                        Blockhash.HammingDistance(
+                            Enumerable.Range(0, left.Length / 2).Select(x => Convert.ToByte(left.Substring(x * 2, 2), 16)).ToArray(),
+                            Enumerable.Range(0, right.Length / 2).Select(x => Convert.ToByte(right.Substring(x * 2, 2), 16)).ToArray()),
+                        $"{left}<->{right}");
+                }
         }
 
         [TestMethod]
