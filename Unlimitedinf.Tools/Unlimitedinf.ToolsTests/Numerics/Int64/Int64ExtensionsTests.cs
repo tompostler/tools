@@ -53,7 +53,7 @@
             };
 
             for (int i = 0; i < values.Length; i++)
-                Assert.AreEqual(i + 1, values[i].Length());
+                Assert.AreEqual(i + 1, values[i].Length(), $"{values[i]}");
         }
 
         [TestMethod]
