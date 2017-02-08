@@ -133,6 +133,8 @@
                 return 17;
             if (number % 1000000000000000000 == number)
                 return 18;
+            if (number > 1000000000000000000)
+                return 19;
             return 0;
         }
 
