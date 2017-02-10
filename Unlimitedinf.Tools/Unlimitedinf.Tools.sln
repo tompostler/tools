@@ -12,11 +12,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.ToolsTests", "Unlimitedinf.ToolsTests\Unlimitedinf.ToolsTests.csproj", "{A03E19C8-CA03-4DD7-95BE-5E1DEE5EE7DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.UnitTests", "Unlimitedinf.Tools.UnitTests\Unlimitedinf.Tools.UnitTests.csproj", "{A03E19C8-CA03-4DD7-95BE-5E1DEE5EE7DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Statics", "Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.csproj", "{FBD2CCB8-32B7-4581-A9F2-3D1D33F742FA}"
 EndProject
 Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "Unlimitedinf.Tools.Package", "Unlimitedinf.Tools.Package\Unlimitedinf.Tools.Package.nuproj", "{7C4883CE-7CBB-4A95-80BA-905885B13337}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.IntTests", "Unlimitedinf.Tools.IntTests\Unlimitedinf.Tools.IntTests.csproj", "{9F931860-92AB-4B45-81F7-8774F9C194CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7C4883CE-7CBB-4A95-80BA-905885B13337}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C4883CE-7CBB-4A95-80BA-905885B13337}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C4883CE-7CBB-4A95-80BA-905885B13337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F931860-92AB-4B45-81F7-8774F9C194CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F931860-92AB-4B45-81F7-8774F9C194CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F931860-92AB-4B45-81F7-8774F9C194CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F931860-92AB-4B45-81F7-8774F9C194CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

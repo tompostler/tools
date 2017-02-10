@@ -1,4 +1,4 @@
-﻿namespace Unlimitedinf.ToolsTests
+﻿namespace Unlimitedinf.Tools.UnitTests
 {
     using System;
     using System.Collections.Generic;

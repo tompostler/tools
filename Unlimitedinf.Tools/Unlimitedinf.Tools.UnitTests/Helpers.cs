@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// Used to extend classes (such as constants), as well as provide generic unit testing helpers.
 /// </summary>
-namespace Unlimitedinf.ToolsTests
+namespace Unlimitedinf.Tools.UnitTests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;

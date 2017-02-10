@@ -1,4 +1,4 @@
-﻿namespace Unlimitedinf.ToolsTests.Hashing
+﻿namespace Unlimitedinf.Tools.UnitTests.Hashing
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

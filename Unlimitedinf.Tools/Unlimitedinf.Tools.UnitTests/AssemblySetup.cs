@@ -1,4 +1,4 @@
-﻿namespace Unlimitedinf.ToolsTests
+﻿namespace Unlimitedinf.Tools.UnitTests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NuGet;
