@@ -22,7 +22,7 @@
   <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
   <PropertyGroup Label="Configuration">
     <Id>Unlimitedinf.Tools</Id>
-    <Version>1.1.12</Version>
+    <Version>1.1.13</Version>
     <Title>Unlimitedinf.Tools</Title>
     <Authors>UnlimitedInf</Authors>
     <Owners>UnlimitedInf</Owners>
@@ -30,7 +30,7 @@
     <ProjectUrl>https://github.com/tompostler/tools</ProjectUrl>
     <IconUrl>https://unlimitedinf.com/files/unlimitedinf/unlimitedinf.ico</IconUrl>
     <Description>A collection of tools I have found useful across more than one C# project.</Description>
-    <ReleaseNotes>Add IEquatable for Id.</ReleaseNotes>
+    <ReleaseNotes>Finally found the Id bug.</ReleaseNotes>
     <Copyright>Copyright 2017 UnlimitedInf</Copyright>
     <Tags>tools unlimitedinf</Tags>
   </PropertyGroup>

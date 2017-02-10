@@ -61,13 +61,18 @@
         /// <summary>
         /// Deserialize ctor.
         /// </summary>
-        /// <param name="sid"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="FormatException"></exception>
         /// <exception cref="OverflowException"></exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
-        public Id(string id) : this(uint.Parse(id.TrimStart('0'), System.Globalization.NumberStyles.HexNumber)) { }
+        public Id(string id)
+        {
+            id = id.TrimStart('0');
+            if (!uint.TryParse(id, System.Globalization.NumberStyles.HexNumber, null, out this._data)
+                && !string.IsNullOrWhiteSpace(id))
+                this._data = uint.Parse(id);
+        }
 
         /// <summary>
         /// Eight lower case characters.
@@ -149,11 +154,17 @@
         /// </summary>
         public static readonly Id Empty = new Id(0);
 
+        /// <summary>
+        /// See <see cref="IComparable{T}.CompareTo(T)"/>.
+        /// </summary>
         public int CompareTo(Id other)
         {
             return ((uint)this).CompareTo((uint)other);
         }
 
+        /// <summary>
+        /// See <see cref="object.Equals(object)"/>.
+        /// </summary>
         public override bool Equals(object obj)
         {
             Id other = (Id)obj;
@@ -163,11 +174,15 @@
             return this.Equals(other);
         }
 
+        /// <summary>
+        /// See <see cref="IEquatable{T}.Equals(T)"/>.
+        /// </summary>
         public bool Equals(Id other)
         {
             return this._data == other._data;
         }
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public static bool operator ==(Id left, Id right)
         {
             return left.Equals(right);
@@ -176,17 +191,19 @@
         {
             return !left.Equals(right);
         }
-
         public static bool operator <(Id left, Id right)
         {
             return left.CompareTo(right) < 0;
         }
-
         public static bool operator >(Id left, Id right)
         {
             return left.CompareTo(right) > 0;
         }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
+        /// <summary>
+        /// See <see cref="object.GetHashCode"/>.
+        /// </summary>
         public override int GetHashCode()
         {
             return ((uint)this).GetHashCode();
@@ -200,6 +217,7 @@
     /// </summary>
     public sealed class IdConverter : JsonConverter
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool CanConvert(Type objectType)
         {
             return objectType == typeof(Id);
@@ -217,6 +235,7 @@
         {
             serializer.Serialize(writer, value.ToString());
         }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 
     #endregion
