@@ -4,21 +4,36 @@
     using System.Text.RegularExpressions;
 
     /// <summary>
-    /// To help with representing and performing operations on semantic versions <see cref="http://semver.org/"/>.
+    /// To help with representing and performing operations on semantic versions <see href="http://semver.org/"/>.
     /// </summary>
     /// <remarks>
     /// Portions of this implementation were referenced on 2016-11-09 from
-    /// <see cref="http://www.michaelfcollins3.me/blog/2013/01/23/semantic_versioning_dotnet.html"/>.
+    /// <see href="http://www.michaelfcollins3.me/blog/2013/01/23/semantic_versioning_dotnet.html"/>.
     /// Based on semver version 2.0.0
     /// </remarks>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Sem", Justification = "Proper name.")]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Ver", Justification = "Proper name.")]
     public class SemVer : IComparable, IComparable<SemVer>, IEquatable<SemVer>
     {
+        /// <summary>
+        /// Major version.
+        /// </summary>
         public int Major { get; private set; }
+        /// <summary>
+        /// Minor version.
+        /// </summary>
         public int Minor { get; private set; }
+        /// <summary>
+        /// Patch version.
+        /// </summary>
         public int Patch { get; private set; }
+        /// <summary>
+        /// Optional prerelease version.
+        /// </summary>
         public string Prerelease { get; private set; }
+        /// <summary>
+        /// Optional build version.
+        /// </summary>
         public string Build { get; private set; }
 
         private static readonly string PBRegexString = @"[A-Za-z0-9\-\.]+";
@@ -202,6 +217,9 @@
 
         #region Interface Implementations and Overrides
 
+        /// <summary>
+        /// See <see cref="object.ToString"/>.
+        /// </summary>
         public override string ToString()
         {
             return $"{this.Major}.{this.Minor}.{this.Patch}"
@@ -209,11 +227,17 @@
                 + (string.IsNullOrEmpty(this.Build) ? "" : $"+{this.Build}");
         }
 
+        /// <summary>
+        /// Ability to cast a string to a SemVer.
+        /// </summary>
         public static explicit operator SemVer(string version)
         {
             return new SemVer(version);
         }
 
+        /// <summary>
+        /// See <see cref="IComparable.CompareTo(object)"/>.
+        /// </summary>
         public int CompareTo(object obj)
         {
             SemVer other = obj as SemVer;
@@ -231,6 +255,9 @@
             return this.CompareTo(other);
         }
 
+        /// <summary>
+        /// See <see cref="object.Equals(object)"/>.
+        /// </summary>
         public override bool Equals(object obj)
         {
             SemVer other = obj as SemVer;
@@ -248,6 +275,9 @@
             return this.Equals(other);
         }
 
+        /// <summary>
+        /// See <see cref="object.GetHashCode"/>.
+        /// </summary>
         public override int GetHashCode()
         {
             string ver = this.ToString();
@@ -350,6 +380,7 @@
             //&& this.Build.Equals(other.Build);
         }
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public static bool operator ==(SemVer left, SemVer right)
         {
             if (ReferenceEquals(left, null))
@@ -362,7 +393,6 @@
         {
             return !(left == right);
         }
-
         public static bool operator <(SemVer left, SemVer right)
         {
             if (ReferenceEquals(left, null))
@@ -375,7 +405,6 @@
         {
             return !(left < right);
         }
-
         public static bool operator >(SemVer left, SemVer right)
         {
             if (ReferenceEquals(left, null))
@@ -388,6 +417,7 @@
         {
             return !(left > right);
         }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
         #endregion Interface Implementations and Overrides
     }

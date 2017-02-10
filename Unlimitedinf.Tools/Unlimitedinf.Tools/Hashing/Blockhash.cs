@@ -346,38 +346,59 @@ namespace Unlimitedinf.Tools.Hashing
 
         private MemoryStream haImageData;
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.HashAlgorithm"/>.
+        /// </summary>
         public Blockhash()
         {
             this.haImageData = new MemoryStream();
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.Initialize"/>.
+        /// </summary>
         public override void Initialize()
         {
             this.haImageData.Dispose();
             this.haImageData = new MemoryStream();
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.HashCore(byte[], int, int)"/>.
+        /// </summary>
         protected override void HashCore(byte[] array, int ibStart, int cbSize)
         {
             this.haImageData.Write(array, ibStart, cbSize);
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.HashFinal"/>.
+        /// </summary>
         protected override byte[] HashFinal()
         {
             this.haImageData.Seek(0, SeekOrigin.Begin);
             return Blockhash.ComputeHash(this.haImageData);
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.Create()"/>.
+        /// </summary>
         new public static HashAlgorithm Create()
         {
             return new Blockhash();
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.ComputeHash(Stream)"/>.
+        /// </summary>
         new public static byte[] ComputeHash(Stream inputStream)
         {
             return ProcessImage(inputStream);
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.HashSize"/>.
+        /// </summary>
         public override int HashSize => 256;
 
         #endregion

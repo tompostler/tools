@@ -14,12 +14,14 @@
         /// </summary>
         public enum Algorithm
         {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
             MD5,
             Crc32,
             SHA1,
             SHA256,
             SHA512,
             Blockhash   // http://blockhash.io/
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         }
 
         private Algorithm algorithm;

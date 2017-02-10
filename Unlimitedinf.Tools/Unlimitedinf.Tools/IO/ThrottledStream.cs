@@ -165,8 +165,8 @@
         /// </summary>
         /// <param name="baseStream">The base stream.</param>
         /// <param name="maximumBytesPerSecond">The maximum bytes per second that can be transferred through the base stream.</param>
-        /// <exception cref="ArgumentNullException">Thrown when <see cref="baseStream"/> is a null reference.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when <see cref="maximumBytesPerSecond"/> is a negative value.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when <c>baseStream</c> is a null reference.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when <c>maximumBytesPerSecond</c> is a negative value.</exception>
         public ThrottledStream(Stream baseStream, long maximumBytesPerSecond)
         {
             if (baseStream == null)

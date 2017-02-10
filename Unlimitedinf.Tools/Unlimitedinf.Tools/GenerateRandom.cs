@@ -4,6 +4,9 @@
     using System.Security.Cryptography;
     using System.Text;
 
+    /// <summary>
+    /// Various methods to generate random information using the <see cref="RNGCryptoServiceProvider"/>.
+    /// </summary>
     public static class GenerateRandom
     {
         /// <summary>

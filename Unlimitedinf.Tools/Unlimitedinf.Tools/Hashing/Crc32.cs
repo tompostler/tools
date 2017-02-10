@@ -25,7 +25,13 @@ namespace Unlimitedinf.Tools.Hashing
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Crc")]
     public sealed class Crc32 : HashAlgorithm
     {
+        /// <summary>
+        /// Default CRC32 polynomial.
+        /// </summary>
         public const UInt32 DefaultPolynomial = 0xedb88320u;
+        /// <summary>
+        /// Default CRC32 seed value.
+        /// </summary>
         public const UInt32 DefaultSeed = 0xffffffffu;
 
         private static UInt32[] defaultTable;
@@ -34,32 +40,50 @@ namespace Unlimitedinf.Tools.Hashing
         private readonly UInt32[] table;
         private UInt32 hash;
 
+        /// <summary>
+        /// Ctor.
+        /// </summary>
         public Crc32()
             : this(DefaultPolynomial, DefaultSeed)
         {
         }
 
+        /// <summary>
+        /// Ctor.
+        /// </summary>
         public Crc32(UInt32 polynomial, UInt32 seed)
         {
             table = InitializeTable(polynomial);
             this.seed = hash = seed;
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.Initialize"/>.
+        /// </summary>
         public override void Initialize()
         {
             hash = seed;
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.Create()"/>.
+        /// </summary>
         public new static Crc32 Create()
         {
             return new Crc32();
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.HashCore(byte[], int, int)"/>.
+        /// </summary>
         protected override void HashCore(byte[] buffer, int start, int length)
         {
             hash = CalculateHash(table, hash, buffer, start, length);
         }
 
+        /// <summary>
+        /// See <see cref="HashAlgorithm.HashFinal"/>.
+        /// </summary>
         protected override byte[] HashFinal()
         {
             var hashBuffer = UInt32ToBigEndianBytes(~hash);
@@ -67,26 +91,11 @@ namespace Unlimitedinf.Tools.Hashing
             return hashBuffer;
         }
 
-        public override int HashSize { get { return 32; } }
-
-        public static UInt32 Compute(byte[] buffer)
-        {
-            return Compute(DefaultSeed, buffer);
-        }
-
-        public static UInt32 Compute(UInt32 seed, byte[] buffer)
-        {
-            return Compute(DefaultPolynomial, seed, buffer);
-        }
-
-        public static UInt32 Compute(UInt32 polynomial, UInt32 seed, byte[] buffer)
-        {
-            if (object.ReferenceEquals(buffer, null))
-                throw new ArgumentNullException(nameof(buffer));
-
-            return ~CalculateHash(InitializeTable(polynomial), seed, buffer, 0, buffer.Length);
-        }
-
+        /// <summary>
+        /// See <see cref="HashAlgorithm.HashSize"/>.
+        /// </summary>
+        public override int HashSize => 32;
+        
         private static UInt32[] InitializeTable(UInt32 polynomial)
         {
             if (polynomial == DefaultPolynomial && defaultTable != null)

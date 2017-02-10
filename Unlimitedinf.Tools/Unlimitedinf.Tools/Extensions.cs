@@ -9,6 +9,9 @@
     /// </summary>
     public static class Extensions
     {
+        /// <summary>
+        /// Calculate the medain of an enumerable. Attempts to convert to doubles.
+        /// </summary>
         public static double Median<T>(this IEnumerable<T> source)
         {
             int count = source.Count();

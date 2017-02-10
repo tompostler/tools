@@ -5944,7 +5944,7 @@
         };
 
         /// <summary>
-        /// Contains the primes below 1,000,000 in a sorted <see cref="int[]"/>.
+        /// Contains the primes below 1,000,000 in a sorted array.
         /// </summary>
         public static int[] Ordered => _Ordered;
 
