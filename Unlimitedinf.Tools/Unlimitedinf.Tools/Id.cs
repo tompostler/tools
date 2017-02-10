@@ -14,7 +14,7 @@
     /// while in memory as long as they're all consistent.
     /// </remarks>
     [JsonConverter(typeof(IdConverter))]
-    public struct Id : IComparable<Id>
+    public struct Id : IComparable<Id>, IEquatable<Id>
     {
         private uint _data;
 
@@ -157,7 +157,14 @@
         public override bool Equals(object obj)
         {
             Id other = (Id)obj;
+            if (ReferenceEquals(null, other))
+                return false;
 
+            return this.Equals(other);
+        }
+
+        public bool Equals(Id other)
+        {
             return this._data == other._data;
         }
 
