@@ -27,6 +27,7 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\noglob.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Unlimitedinf.Tools.Statics.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>bin\Release\</OutputPath>
@@ -36,6 +37,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\noglob.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\Unlimitedinf.Tools.Statics.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

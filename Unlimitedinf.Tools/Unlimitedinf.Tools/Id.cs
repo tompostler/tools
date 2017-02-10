@@ -75,7 +75,7 @@
         /// <returns></returns>
         public override string ToString()
         {
-            return ((uint)this).ToString("x8");
+            return ((uint)this).ToString("X8");
         }
 
         /// <summary>
@@ -191,7 +191,7 @@
     /// <summary>
     /// Enable Json.NET serialization and deserialization.
     /// </summary>
-    internal sealed class IdConverter : JsonConverter
+    public sealed class IdConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
