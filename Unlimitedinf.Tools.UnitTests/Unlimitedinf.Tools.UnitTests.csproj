@@ -6,8 +6,8 @@
     <ProjectGuid>{A03E19C8-CA03-4DD7-95BE-5E1DEE5EE7DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Unlimitedinf.ToolsTests</RootNamespace>
-    <AssemblyName>Unlimitedinf.ToolsTests</AssemblyName>
+    <RootNamespace>Unlimitedinf.Tools.UnitTests</RootNamespace>
+    <AssemblyName>Unlimitedinf.Tools.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -69,24 +69,13 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Constants.cs" />
-    <Compile Include="GenerateRandomTests.cs" />
-    <Compile Include="AssemblySetup.cs" />
-    <Compile Include="Hashing\HashingTests.cs" />
-    <Compile Include="Helpers.cs" />
-    <Compile Include="Numerics\Int32\Int32ExtensionsTests.cs" />
-    <Compile Include="Numerics\Int64\Int64ExtensionsTests.cs" />
     <Compile Include="Properties\LocalAssemblyInfo.cs" />
-    <Compile Include="SemVerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj">
       <Project>{A58098C7-2467-4220-A485-59B80EBB12FD}</Project>
       <Name>Unlimitedinf.Tools</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Choose>

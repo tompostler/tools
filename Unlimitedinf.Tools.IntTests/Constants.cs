@@ -1,13 +1,13 @@
-﻿namespace Unlimitedinf.Tools.UnitTests
-{
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
+namespace Unlimitedinf.Tools.IntTests
+{
     /// <summary>
     /// Test constants, usually string-based.
     /// </summary>
-    public static partial class Constants
+    internal static partial class C
     {
         /// <summary>
         /// Shorthand to be able to use Path, see <see cref="Path.Combine(string, string)"/>.

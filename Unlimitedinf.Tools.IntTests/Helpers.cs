@@ -1,16 +1,11 @@
-﻿/// <summary>
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+/// <summary>
 /// Used to extend classes (such as constants), as well as provide generic unit testing helpers.
 /// </summary>
-namespace Unlimitedinf.Tools.UnitTests
+namespace Unlimitedinf.Tools.IntTests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
-    public static partial class Constants
+    internal static partial class C
     {
         public static partial class BinaryPackage
         {

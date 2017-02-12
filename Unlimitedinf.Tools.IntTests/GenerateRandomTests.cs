@@ -1,8 +1,8 @@
-﻿namespace Unlimitedinf.Tools.Tests
-{
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
+namespace Unlimitedinf.Tools.IntTests
+{
     [TestClass]
     public class GenerateRandomTests
     {

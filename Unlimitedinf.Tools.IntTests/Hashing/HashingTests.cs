@@ -1,12 +1,12 @@
-﻿namespace Unlimitedinf.Tools.UnitTests.Hashing
-{
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Collections.Generic;
-    using System.IO;
-    using Tools.Hashing;
-    using System.Linq;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Unlimitedinf.Tools.Hashing;
 
+namespace Unlimitedinf.Tools.IntTests.Hashing
+{
     [TestClass]
     public class HashingTests
     {
@@ -16,7 +16,7 @@
         public static void Initialize(TestContext tc)
         {
             List<FileInfo> images = new List<FileInfo>();
-            foreach (string filename in Constants.BinaryPackage.Content.Images)
+            foreach (string filename in C.BinaryPackage.Content.Images)
                 images.Add(new FileInfo(filename));
             Images = images;
         }
@@ -24,7 +24,7 @@
         [TestMethod]
         public void BlockhashTest()
         {
-            Constants.BinaryPackage.AssertExists();
+            C.BinaryPackage.AssertExists();
 
             Dictionary<string, string> hashesExpected = new Dictionary<string, string>
             {
@@ -88,7 +88,7 @@
         [TestMethod]
         public void Crc32Test()
         {
-            Constants.BinaryPackage.AssertExists();
+            C.BinaryPackage.AssertExists();
 
             Dictionary<string, string> hashesExpected = new Dictionary<string, string>
             {
@@ -119,7 +119,7 @@
         [TestMethod]
         public void MD5Test()
         {
-            Constants.BinaryPackage.AssertExists();
+            C.BinaryPackage.AssertExists();
 
             Dictionary<string, string> hashesExpected = new Dictionary<string, string>
             {
@@ -150,7 +150,7 @@
         [TestMethod]
         public void SHA1Test()
         {
-            Constants.BinaryPackage.AssertExists();
+            C.BinaryPackage.AssertExists();
 
             Dictionary<string, string> hashesExpected = new Dictionary<string, string>
             {
@@ -181,7 +181,7 @@
         [TestMethod]
         public void SHA256Test()
         {
-            Constants.BinaryPackage.AssertExists();
+            C.BinaryPackage.AssertExists();
 
             Dictionary<string, string> hashesExpected = new Dictionary<string, string>
             {
@@ -212,7 +212,7 @@
         [TestMethod]
         public void SHA512Test()
         {
-            Constants.BinaryPackage.AssertExists();
+            C.BinaryPackage.AssertExists();
 
             Dictionary<string, string> hashesExpected = new Dictionary<string, string>
             {

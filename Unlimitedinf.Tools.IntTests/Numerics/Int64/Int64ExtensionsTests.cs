@@ -1,8 +1,9 @@
-﻿namespace Unlimitedinf.Tools.Numerics.Int64.Tests
-{
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Linq;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+using Unlimitedinf.Tools.Numerics.Int64;
 
+namespace Unlimitedinf.Tools.IntTests.Numerics.Int64
+{
     [TestClass]
     public class Int64ExtensionsTests
     {

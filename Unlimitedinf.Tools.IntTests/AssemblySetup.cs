@@ -1,10 +1,10 @@
-﻿namespace Unlimitedinf.Tools.UnitTests
-{
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using NuGet;
-    using System;
-    using System.IO;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NuGet;
+using System;
+using System.IO;
 
+namespace Unlimitedinf.Tools.IntTests
+{
     /// <summary>
     /// Actions to be performed on assembly setup.
     /// </summary>
@@ -18,9 +18,9 @@
         [AssemblyInitialize]
         public static void AssemblyInitialization(TestContext testContext)
         {
-            if (Directory.Exists(Constants.BinaryPackage.Path))
+            if (Directory.Exists(C.BinaryPackage.Path))
             {
-                Constants.BinaryPackage.Acquired = true;
+                C.BinaryPackage.Acquired = true;
                 return;
             }
 
@@ -32,11 +32,11 @@
                 // Connect to the official package repository
                 IPackageRepository repo = PackageRepositoryFactory.Default.CreateRepository("https://packages.nuget.org/api/v2");
                 // Initialize the package manager
-                PackageManager packageManager = new PackageManager(repo, Constants.BasePath);
+                PackageManager packageManager = new PackageManager(repo, C.BasePath);
                 // Download and unzip the package
-                packageManager.InstallPackage(Constants.BinaryPackage.Id, SemanticVersion.Parse(Constants.BinaryPackage.Version), true, true);
+                packageManager.InstallPackage(C.BinaryPackage.Id, SemanticVersion.Parse(C.BinaryPackage.Version), true, true);
 
-                Constants.BinaryPackage.Acquired = true;
+                C.BinaryPackage.Acquired = true;
             }
             catch (Exception)
             { }

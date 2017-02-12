@@ -1,9 +1,9 @@
-﻿namespace Unlimitedinf.Tools.Numerics.Int32.Tests
-{
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Collections.Generic;
-    using Unlimitedinf.Tools.Numerics.Int32;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using Unlimitedinf.Tools.Numerics.Int32;
 
+namespace Unlimitedinf.Tools.IntTests.Numerics.Int32
+{
     [TestClass]
     public class Int32ExtensionsTests
     {

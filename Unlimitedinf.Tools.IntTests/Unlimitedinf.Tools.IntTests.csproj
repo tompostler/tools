@@ -65,8 +65,16 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AssemblySetup.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="GenerateRandomTests.cs" />
+    <Compile Include="Hashing\HashingTests.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="IdTests.cs" />
+    <Compile Include="Numerics\Int32\Int32ExtensionsTests.cs" />
+    <Compile Include="Numerics\Int64\Int64ExtensionsTests.cs" />
     <Compile Include="Properties\LocalAssemblyInfo.cs" />
+    <Compile Include="SemVerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj">
