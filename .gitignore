@@ -252,5 +252,4 @@ paket-files/
 .idea/
 *.sln.iml
 
-# But include these
-!signingkey.pfx
+/Unlimitedinf.Tools.Statics/Properties/AssemblyInfo.cs

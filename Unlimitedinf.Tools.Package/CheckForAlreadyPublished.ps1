@@ -1,6 +1,7 @@
 # Get the version from the nuproj
-[xml]$proj = Get-Content .\Unlimitedinf.Tools.Package.nuproj;
+[xml]$proj = Get-Content ..\Version.xml;
 $version = $proj.Project.PropertyGroup | ? {$_.Version} | Select-Object -ExpandProperty Version;
+Write-Host "Found version '$version' in Version.xml";
 
 # Get the nuget package repository
 $pkgNuGet_Core = "NuGet.Core." + ([xml](Get-Content .\packages.config)).packages.package.version
@@ -12,4 +13,6 @@ if (($repo.FindPackagesById("Unlimitedinf.Tools") | ? {$_.Version -eq $version} 
     $msg = "Nuget package Unlimitedinf.Tools.$version already published.";
     Write-Host $msg;
     Write-Error $msg;
+} else {
+    Write-Host "Nuget package Unlimitedinf.Tools.$version not found on nuget.org";
 }

@@ -49,6 +49,9 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Unlimitedinf.Tools.Statics\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="GenerateRandom.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -67,9 +70,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\AssemblyInfo.cs">
-      <Link>Properties\AssemblyInfo.cs</Link>
-    </Compile>
     <None Include="..\unlimitedinf.ico">
       <Link>Properties\unlimitedinf.ico</Link>
     </None>
@@ -80,7 +80,9 @@
       <Name>Unlimitedinf.Tools.Statics</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NuProj.Common.0.11.14-beta\build\dotnet\NuProj.Common.targets" Condition="Exists('..\packages\NuProj.Common.0.11.14-beta\build\dotnet\NuProj.Common.targets')" />
 </Project>
