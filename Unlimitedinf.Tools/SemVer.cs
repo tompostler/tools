@@ -208,9 +208,86 @@
             return true;
         }
 
+        internal static int Compare(SemVer left, SemVer right)
+        {
+            if (ReferenceEquals(null, left))
+                throw new ArgumentNullException(nameof(left));
+            if (ReferenceEquals(null, right))
+                throw new ArgumentNullException(nameof(right));
+
+            if (ReferenceEquals(left, right))
+                return 0;
+
+            int result = left.Major.CompareTo(right.Major);
+            if (result != 0)
+                return result;
+
+            result = left.Minor.CompareTo(right.Minor);
+            if (result != 0)
+                return result;
+
+            result = left.Patch.CompareTo(right.Patch);
+            if (result != 0)
+                return result;
+
+            result = ComparePrereleaseOrBuildVersionString(left.Prerelease, right.Prerelease);
+            if (result != 0)
+                return result;
+
+            // Build metadata SHOULD be ignored when determining version precedence
+            return 0;
+        }
+
+        internal static int ComparePrereleaseOrBuildVersionString(string left, string right)
+        {
+            bool existsLeft = !string.IsNullOrEmpty(left);
+            bool existsRight = !string.IsNullOrEmpty(right);
+
+            // When major, minor, and patch are equal, a pre-release/build version has lower precedence than a normal version
+            if (existsLeft && !existsRight)
+                return -1;
+            if (!existsLeft && existsRight)
+                return 1;
+            if (!existsLeft && !existsRight)
+                return 0;
+
+            char[] dotDelimiter = new[] { '.' };
+            string[] parts1 = left.Split(dotDelimiter, StringSplitOptions.RemoveEmptyEntries);
+            string[] parts2 = right.Split(dotDelimiter, StringSplitOptions.RemoveEmptyEntries);
+
+            int max = Math.Max(parts1.Length, parts2.Length);
+
+            // Identifiers consisting of only digits are compared numerically and identifiers with letters or hyphens
+            // are compared lexically in ASCII sort order.
+            for (int i = 0; i < max; i++)
+            {
+                // A larger set of fields has a higher precedence than a smaller set,
+                // if all of the preceding identifiers are equal
+                if (i == parts1.Length)
+                    return -1;
+                if (i == parts2.Length)
+                    return 1;
+
+                string part1 = parts1[i];
+                string part2 = parts2[i];
+                int result = 0;
+                int p1, p2;
+                if (int.TryParse(part1, out p1) && int.TryParse(part2, out p2))
+                    result = p1.CompareTo(p2);
+                else
+                    result = string.Compare(part1, part2, StringComparison.Ordinal);
+
+                if (result != 0)
+                    return result;
+            }
+
+            return 0;
+        }
+
         //
         // Interface Implementations and Overrides
         //
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
         public override string ToString()
         {
@@ -317,81 +394,6 @@
         {
             return !(left > right);
         }
-
-        internal static int Compare(SemVer left, SemVer right)
-        {
-            if (ReferenceEquals(null, left))
-                throw new ArgumentNullException(nameof(left));
-            if (ReferenceEquals(null, right))
-                throw new ArgumentNullException(nameof(right));
-
-            if (ReferenceEquals(left, right))
-                return 0;
-
-            int result = left.Major.CompareTo(right.Major);
-            if (result != 0)
-                return result;
-
-            result = left.Minor.CompareTo(right.Minor);
-            if (result != 0)
-                return result;
-
-            result = left.Patch.CompareTo(right.Patch);
-            if (result != 0)
-                return result;
-
-            result = ComparePrereleaseOrBuildVersionString(left.Prerelease, right.Prerelease);
-            if (result != 0)
-                return result;
-
-            // Build metadata SHOULD be ignored when determining version precedence
-            return 0;
-        }
-
-        internal static int ComparePrereleaseOrBuildVersionString(string left, string right)
-        {
-            bool existsLeft = !string.IsNullOrEmpty(left);
-            bool existsRight = !string.IsNullOrEmpty(right);
-
-            // When major, minor, and patch are equal, a pre-release/build version has lower precedence than a normal version
-            if (existsLeft && !existsRight)
-                return -1;
-            if (!existsLeft && existsRight)
-                return 1;
-            if (!existsLeft && !existsRight)
-                return 0;
-
-            char[] dotDelimiter = new[] { '.' };
-            string[] parts1 = left.Split(dotDelimiter, StringSplitOptions.RemoveEmptyEntries);
-            string[] parts2 = right.Split(dotDelimiter, StringSplitOptions.RemoveEmptyEntries);
-
-            int max = Math.Max(parts1.Length, parts2.Length);
-
-            // Identifiers consisting of only digits are compared numerically and identifiers with letters or hyphens
-            // are compared lexically in ASCII sort order.
-            for (int i = 0; i < max; i++)
-            {
-                // A larger set of fields has a higher precedence than a smaller set,
-                // if all of the preceding identifiers are equal
-                if (i == parts1.Length)
-                    return -1;
-                if (i == parts2.Length)
-                    return 1;
-
-                string part1 = parts1[i];
-                string part2 = parts2[i];
-                int result = 0;
-                int p1, p2;
-                if (int.TryParse(part1, out p1) && int.TryParse(part2, out p2))
-                    result = p1.CompareTo(p2);
-                else
-                    result = string.Compare(part1, part2, StringComparison.Ordinal);
-
-                if (result != 0)
-                    return result;
-            }
-
-            return 0;
-        }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
