@@ -46,8 +46,6 @@ using System;
 <#+
 	// Default to 0.0.0
 	string NuVersion = "0.0.0";
-	// Set the last version to the number of days since I last updated the datestamp * 100
-	//	Plus the distance through today in hundredths
-	int Prerelease = ((DateTime.Now.Year - 2017) * 366 + DateTime.Now.DayOfYear - new DateTime(2017, 2, 12).DayOfYear) * 100
-					 + (int)((DateTime.Now - DateTime.Today).TotalMinutes / 14.4);
+	// Set the last version to the tenths of a day since the last update
+	int Prerelease = (int)((DateTime.Now - new DateTime(2017, 2, 24)).TotalDays * 10);
 #>
