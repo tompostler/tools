@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Numerics\Primes.cs" />
-    <Compile Include="Properties\AssemblyInfo.ps1" />
+    <None Include="Properties\AssemblyInfo.ps1" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <DependentUpon>AssemblyInfo.ps1</DependentUpon>
       <AutoGen>True</AutoGen>

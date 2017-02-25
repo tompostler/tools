@@ -113,7 +113,7 @@
             return new SemVer(Major, Minor, Patch + 1);
         }
 
-        private void CheckValidPrereleaseOrBuildString(string version, string paramName)
+        private static void CheckValidPrereleaseOrBuildString(string version, string paramName)
         {
             if (ReferenceEquals(null, version))
                 return;
@@ -208,36 +208,6 @@
             return true;
         }
 
-        internal static int Compare(SemVer left, SemVer right)
-        {
-            if (ReferenceEquals(null, left))
-                throw new ArgumentNullException(nameof(left));
-            if (ReferenceEquals(null, right))
-                throw new ArgumentNullException(nameof(right));
-
-            if (ReferenceEquals(left, right))
-                return 0;
-
-            int result = left.Major.CompareTo(right.Major);
-            if (result != 0)
-                return result;
-
-            result = left.Minor.CompareTo(right.Minor);
-            if (result != 0)
-                return result;
-
-            result = left.Patch.CompareTo(right.Patch);
-            if (result != 0)
-                return result;
-
-            result = ComparePrereleaseOrBuildVersionString(left.Prerelease, right.Prerelease);
-            if (result != 0)
-                return result;
-
-            // Build metadata SHOULD be ignored when determining version precedence
-            return 0;
-        }
-
         internal static int ComparePrereleaseOrBuildVersionString(string left, string right)
         {
             bool existsLeft = !string.IsNullOrEmpty(left);
@@ -288,6 +258,36 @@
         // Interface Implementations and Overrides
         //
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
+        public static int Compare(SemVer left, SemVer right)
+        {
+            if (ReferenceEquals(null, left))
+                throw new ArgumentNullException(nameof(left));
+            if (ReferenceEquals(null, right))
+                throw new ArgumentNullException(nameof(right));
+
+            if (ReferenceEquals(left, right))
+                return 0;
+
+            int result = left.Major.CompareTo(right.Major);
+            if (result != 0)
+                return result;
+
+            result = left.Minor.CompareTo(right.Minor);
+            if (result != 0)
+                return result;
+
+            result = left.Patch.CompareTo(right.Patch);
+            if (result != 0)
+                return result;
+
+            result = ComparePrereleaseOrBuildVersionString(left.Prerelease, right.Prerelease);
+            if (result != 0)
+                return result;
+
+            // Build metadata SHOULD be ignored when determining version precedence
+            return 0;
+        }
 
         public override string ToString()
         {
