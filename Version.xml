@@ -3,5 +3,8 @@
   <PropertyGroup Label="Configuration">
     <Version>2.0.1</Version>
     <LastUpdated>2017-02-25</LastUpdated>
+    <ReleaseNotes>Breaking change: The SemVer is now immutable.</ReleaseNotes>
+    <Copyright>Copyright 2017 UnlimitedInf</Copyright>
+    <Tags>tools unlimitedinf t4 tt semver</Tags>
   </PropertyGroup>
 </Project>

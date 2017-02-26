@@ -54,7 +54,7 @@
     </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="GenerateRandom.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Hashing\Blockhash.cs" />
     <Compile Include="Hashing\Crc32.cs" />
     <Compile Include="Hashing\Hasher.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="SemVer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="Properties\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\unlimitedinf.ico">

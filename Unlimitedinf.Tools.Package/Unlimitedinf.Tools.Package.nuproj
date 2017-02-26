@@ -29,9 +29,6 @@
     <ProjectUrl>https://github.com/tompostler/tools</ProjectUrl>
     <IconUrl>https://unlimitedinf.com/files/unlimitedinf/unlimitedinf.ico</IconUrl>
     <Description>A collection of tools I have found useful across more than one project. Even though there are different languages in use, it's all packaged up as a nice nuget package.</Description>
-    <ReleaseNotes>Breaking change: The SemVer is now immutable.</ReleaseNotes>
-    <Copyright>Copyright 2017 UnlimitedInf</Copyright>
-    <Tags>tools unlimitedinf t4 tt semver</Tags>
   </PropertyGroup>
   
   <!--Project reference-->
