@@ -68,7 +68,7 @@
     <Compile Include="SemVer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\packages.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\unlimitedinf.ico">
