@@ -70,6 +70,7 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Properties\LocalAssemblyInfo.cs" />
+    <Compile Include="StringExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj">
