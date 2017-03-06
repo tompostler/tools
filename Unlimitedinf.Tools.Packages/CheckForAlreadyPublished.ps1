@@ -1,4 +1,4 @@
-# Tom Postler, 2017-03-03
+# Tom Postler, 2017-03-06
 # Generate nuspec files for all the projects/things
 
 # Set CWD to script location
@@ -24,7 +24,7 @@ foreach ($packageId in $packageIds) {
     # Check if current version is already published
     if (($repo.FindPackagesById($packageId) | ? {$_.Version -eq $version} | Measure-Object).Count -eq 1) {
         $msg = "Nuget package $packageId.$version already published.";
-        Write-Host $msg;
+        "$packageId $version" >> "alreadypublished";
         Write-Warning $msg;
     } else {
         Write-Host "Nuget package $packageId.$version not found on nuget.org";
