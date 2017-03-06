@@ -66,5 +66,6 @@ orleans.codegen.cs
 # Microsoft Fakes
 FakesAssemblies/
 
-/Unlimitedinf.Tools.Statics/Properties/AssemblyInfo.cs
-/Unlimitedinf.Tools.IntTests/StringExtensionsTests.generated.cs
+LocalAssemblyInfo.cs
+*.generated.cs
+*.nuspec

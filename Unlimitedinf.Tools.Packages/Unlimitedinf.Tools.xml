@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <version>3.0.0</version>
+    <releaseNotes>
+      3.0.0
+
+      - Broke apart the original package based on dependencies.
+      - Remove t4 templating artifacts because powershell is much easier to work with.
+    </releaseNotes>
+    <tags>tools unlimitedinf semver</tags>
+    <description>
+      A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
+      
+      See source README for full explanation.
+    </description>
+  </metadata>
+  <LastUpdated>2017-03-03</LastUpdated>
+</package>

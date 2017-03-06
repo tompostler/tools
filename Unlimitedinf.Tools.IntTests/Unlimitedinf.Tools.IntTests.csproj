@@ -53,9 +53,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Unlimitedinf.Tools.Statics\Properties\AssemblyInfo.cs">
-      <Link>Properties\AssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="AssemblySetup.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="GenerateRandomTests.cs" />
@@ -64,7 +61,6 @@
     <Compile Include="IdTests.cs" />
     <Compile Include="Numerics\Int32\Int32ExtensionsTests.cs" />
     <Compile Include="Numerics\Int64\Int64ExtensionsTests.cs" />
-    <Compile Include="Properties\LocalAssemblyInfo.cs" />
     <None Include="packages.config" />
     <Compile Include="SemVerTests.cs" />
     <None Include="StringExtensionsTests.ps1" />
@@ -74,8 +70,20 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Properties\LocalAssemblyInfo.cs" />
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.csproj">
+      <Project>{a17bbb82-5a8c-45e9-81c1-287908728266}</Project>
+      <Name>Unlimitedinf.Tools.Numerics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.csproj">
+      <Project>{fbd2ccb8-32b7-4581-a9f2-3d1d33f742fa}</Project>
+      <Name>Unlimitedinf.Tools.Statics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj">
       <Project>{A58098C7-2467-4220-A485-59B80EBB12FD}</Project>
       <Name>Unlimitedinf.Tools</Name>
@@ -84,6 +92,7 @@
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>powershell "$(ProjectDir)StringExtensionsTests.ps1"</PreBuildEvent>
+    <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1" "$(AssemblyName)"
+powershell "$(ProjectDir)StringExtensionsTests.ps1"</PreBuildEvent>
   </PropertyGroup>
 </Project>

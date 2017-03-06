@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <version>3.0.0</version>
+    <releaseNotes>
+      3.0.0
+
+      - Broke apart the original package based on dependencies.
+      - Added the prime integers from 2 to 1000003, inclusive, as an unordered set and an ordered array.
+    </releaseNotes>
+    <tags>tools unlimitedinf static primes</tags>
+    <description>Contains the prime numbers below one million.</description>
+  </metadata>
+  <LastUpdated>2017-03-03</LastUpdated>
+</package>

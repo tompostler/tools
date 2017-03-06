@@ -21,7 +21,6 @@
         /// <summary>
         /// Ctor.
         /// </summary>
-        /// <param name="id"></param>
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
         public Id(uint id)
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
@@ -32,7 +31,6 @@
         /// <summary>
         /// Ctor.
         /// </summary>
-        /// <param name="id"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public Id(byte[] id)
@@ -77,7 +75,6 @@
         /// <summary>
         /// Eight lower case characters.
         /// </summary>
-        /// <returns></returns>
         public override string ToString()
         {
             return ((uint)this).ToString("X8");
@@ -86,7 +83,6 @@
         /// <summary>
         /// Make it easier to work with an Id's formatting.
         /// </summary>
-        /// <param name="id"></param>
 #pragma warning disable CS3002 // Return type is not CLS-compliant
         public static explicit operator uint(Id id)
 #pragma warning restore CS3002 // Return type is not CLS-compliant
@@ -97,7 +93,6 @@
         /// <summary>
         /// Convert a string to Id. Needed for newtonsoft.
         /// </summary>
-        /// <param name="id"></param>
         public static explicit operator Id(string id)
         {
             return new Id(id);
@@ -106,7 +101,6 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Id"/> structure. Not guaranteed to be unique.
         /// </summary>
-        /// <returns></returns>
         public static Id NewId()
         {
             return new Id(GenerateRandom.Bytes(4));
@@ -116,24 +110,19 @@
         /// Initializes a new instance of the <see cref="Id"/> structure. Will try up to 10 times to be unique from the
         /// given set. If not unique, throws.
         /// </summary>
-        /// <param name="ids"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException">Thrown if a unique value could not be generated in 10 attempts.</exception>
-        /// <returns></returns>
         public static Id NewId(HashSet<Id> ids)
         {
             return Id.NewId(ids, 10);
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Id"/> structure. Will try up to 10 times to be unique from the
-        /// given set. If not unique, throws.
+        /// Initializes a new instance of the <see cref="Id"/> structure. Will try up to retryCount times to be unique
+        /// from the given set. If not unique, throws.
         /// </summary>
-        /// <param name="ids"></param>
-        /// <param name="retryCount"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException">Thrown if a unique value could not be generated.</exception>
-        /// <returns></returns>
         public static Id NewId(HashSet<Id> ids, int retryCount)
         {
             if (ids == null)

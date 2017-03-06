@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <authors>UnlimitedInf</authors>
+    <owners>UnlimitedInf</owners>
+    <licenseUrl>https://github.com/tompostler/tools/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tompostler/tools</projectUrl>
+    <iconUrl>https://unlimitedinf.com/files/unlimitedinf/unlimitedinf.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright 2017 UnlimitedInf</copyright>
+  </metadata>
+</package>

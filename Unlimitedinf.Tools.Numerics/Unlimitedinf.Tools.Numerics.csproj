@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FBD2CCB8-32B7-4581-A9F2-3D1D33F742FA}</ProjectGuid>
+    <ProjectGuid>{A17BBB82-5A8C-45E9-81C1-287908728266}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Unlimitedinf.Tools.Statics</RootNamespace>
-    <AssemblyName>Unlimitedinf.Tools.Statics</AssemblyName>
+    <RootNamespace>Unlimitedinf.Tools.Numerics</RootNamespace>
+    <AssemblyName>Unlimitedinf.Tools.Numerics</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -16,45 +16,48 @@
   <PropertyGroup>
     <ApplicationIcon>..\unlimitedinf.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Unlimitedinf.Tools.Numerics.XML</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\noglob.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Debug\Unlimitedinf.Tools.Statics.XML</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Unlimitedinf.Tools.Numerics.XML</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\noglob.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Release\Unlimitedinf.Tools.Statics.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BigInt\BigIntegerExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Numerics\Primes.cs" />
+    <Compile Include="Int32\Int32Extensions.cs" />
+    <Compile Include="Int64\Int64Extensions.cs" />
     <Compile Include="Properties\LocalAssemblyInfo.cs" />
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\unlimitedinf.ico">
-      <Link>Properties\unlimitedinf.ico</Link>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <ProjectReference Include="..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.csproj">
+      <Project>{fbd2ccb8-32b7-4581-a9f2-3d1d33f742fa}</Project>
+      <Name>Unlimitedinf.Tools.Statics</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

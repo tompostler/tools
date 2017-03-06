@@ -8,27 +8,31 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F362E671-015F-475E-BBA9-E387CB8EB952}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
+		LocalAssemblyInfo.ps1 = LocalAssemblyInfo.ps1
 		noglob.ruleset = noglob.ruleset
 		README.md = README.md
-		Version.xml = Version.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.UnitTests", "Unlimitedinf.Tools.UnitTests\Unlimitedinf.Tools.UnitTests.csproj", "{A03E19C8-CA03-4DD7-95BE-5E1DEE5EE7DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Statics", "Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.csproj", "{FBD2CCB8-32B7-4581-A9F2-3D1D33F742FA}"
 EndProject
-Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "Unlimitedinf.Tools.Package", "Unlimitedinf.Tools.Package\Unlimitedinf.Tools.Package.nuproj", "{7C4883CE-7CBB-4A95-80BA-905885B13337}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.IntTests", "Unlimitedinf.Tools.IntTests\Unlimitedinf.Tools.IntTests.csproj", "{9F931860-92AB-4B45-81F7-8774F9C194CD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unlimitedinf.Tools.T4", "Unlimitedinf.Tools.T4", "{144183D9-A682-44AA-80A2-8A4D1741F962}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unlimitedinf.Tools.Packages", "Unlimitedinf.Tools.Packages", "{78B4AC7D-5654-4268-80F5-B345C9B5AC53}"
 	ProjectSection(SolutionItems) = preProject
-		Unlimitedinf.Tools.T4\Microsoft.VisualStudio.TextTemplating.14.0.dll = Unlimitedinf.Tools.T4\Microsoft.VisualStudio.TextTemplating.14.0.dll
-		Unlimitedinf.Tools.T4\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll = Unlimitedinf.Tools.T4\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll
-		Unlimitedinf.Tools.T4\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll = Unlimitedinf.Tools.T4\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll
-		Unlimitedinf.Tools.T4\TextTransform.exe = Unlimitedinf.Tools.T4\TextTransform.exe
-		Unlimitedinf.Tools.T4\transform-all.bat = Unlimitedinf.Tools.T4\transform-all.bat
+		Unlimitedinf.Tools.Packages\CheckForAlreadyPublished.ps1 = Unlimitedinf.Tools.Packages\CheckForAlreadyPublished.ps1
+		Unlimitedinf.Tools.Packages\Common.xml = Unlimitedinf.Tools.Packages\Common.xml
+		Unlimitedinf.Tools.Packages\Create-Nuspecs.ps1 = Unlimitedinf.Tools.Packages\Create-Nuspecs.ps1
+		Unlimitedinf.Tools.Packages\PackageIds.txt = Unlimitedinf.Tools.Packages\PackageIds.txt
+		Unlimitedinf.Tools.Packages\packages.config = Unlimitedinf.Tools.Packages\packages.config
+		Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.Numerics.xml = Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.Numerics.xml
+		Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.Statics.xml = Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.Statics.xml
+		Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.xml = Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.xml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.csproj", "{A17BBB82-5A8C-45E9-81C1-287908728266}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,13 +51,13 @@ Global
 		{FBD2CCB8-32B7-4581-A9F2-3D1D33F742FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBD2CCB8-32B7-4581-A9F2-3D1D33F742FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBD2CCB8-32B7-4581-A9F2-3D1D33F742FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C4883CE-7CBB-4A95-80BA-905885B13337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C4883CE-7CBB-4A95-80BA-905885B13337}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C4883CE-7CBB-4A95-80BA-905885B13337}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C4883CE-7CBB-4A95-80BA-905885B13337}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9F931860-92AB-4B45-81F7-8774F9C194CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F931860-92AB-4B45-81F7-8774F9C194CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F931860-92AB-4B45-81F7-8774F9C194CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17BBB82-5A8C-45E9-81C1-287908728266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17BBB82-5A8C-45E9-81C1-287908728266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17BBB82-5A8C-45E9-81C1-287908728266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17BBB82-5A8C-45E9-81C1-287908728266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
