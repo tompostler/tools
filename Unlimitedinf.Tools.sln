@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unlimitedinf.Tools.Packages
 		Unlimitedinf.Tools.Packages\Create-Nuspecs.ps1 = Unlimitedinf.Tools.Packages\Create-Nuspecs.ps1
 		Unlimitedinf.Tools.Packages\PackageIds.txt = Unlimitedinf.Tools.Packages\PackageIds.txt
 		Unlimitedinf.Tools.Packages\packages.config = Unlimitedinf.Tools.Packages\packages.config
+		Unlimitedinf.Tools.Packages\Remove-AlreadyPublished.ps1 = Unlimitedinf.Tools.Packages\Remove-AlreadyPublished.ps1
 		Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.Numerics.xml = Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.Numerics.xml
 		Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.Statics.xml = Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.Statics.xml
 		Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.xml = Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.xml

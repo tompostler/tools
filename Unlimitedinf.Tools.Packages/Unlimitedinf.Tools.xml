@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
+  <LastUpdated>2017-03-09</LastUpdated>
   <metadata>
     <version>3.0.1</version>
     <releaseNotes>
@@ -19,5 +20,4 @@
       See source README for full explanation.
     </description>
   </metadata>
-  <LastUpdated>2017-03-03</LastUpdated>
 </package>

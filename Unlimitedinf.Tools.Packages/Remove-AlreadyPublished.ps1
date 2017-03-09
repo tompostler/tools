@@ -11,9 +11,21 @@ $packageIds = Get-Content ".\alreadypublished";
 # Loop for each package already published, and remove it
 foreach ($packageId in $packageIds) {
     $packageId, $version = $packageId.Split(' ');
+
     $packagePath = "..\$packageId\$packageId.$version.nupkg"
-    Remove-Item $packagePath;
-    Write-Host "Removed $packagePath";
+	if (Test-Path "$packagePath") {
+		Remove-Item $packagePath;
+		Write-Host "Removed $packagePath";
+	} else {
+		# Some VSTS builds seems to but it in the root for some reason
+		$packagePath = "..\$packageId.$version.nupkg"
+		if (Test-Path "$packagePath") {
+			Remove-Item $packagePath;
+			Write-Host "Removed $packagePath";
+		} else {
+			Write-Error "Could not find $packageId.$version.nupkg to remove.";
+		}
+	}
 }
 
 # Restore CWD
