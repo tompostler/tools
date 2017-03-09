@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System;
 
 namespace Unlimitedinf.Tools.IntTests
@@ -7,7 +8,23 @@ namespace Unlimitedinf.Tools.IntTests
     public class SemVerTests
     {
         [TestMethod]
-        public void IncrementMajorTest()
+        public void SV_Deserialization()
+        {
+            SemVer deserialized = JsonConvert.DeserializeObject<SemVer>(@" ""1.2.3-4567+890"" ");
+            SemVer version = SemVer.Parse("1.2.3-4567+890");
+            Assert.IsTrue(deserialized == version);
+        }
+
+        [TestMethod]
+        public void SV_Serialization()
+        {
+            SemVer version = SemVer.Parse("1.2.3-4567+890");
+            string serialized = JsonConvert.SerializeObject(version);
+            Assert.AreEqual(@"""1.2.3-4567+890""", serialized);
+        }
+
+        [TestMethod]
+        public void SV_IncrementMajorTest()
         {
             SemVer version = new SemVer(1, 2, 3);
             version = version.IncrementMajor();
@@ -15,7 +32,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void IncrementMinorTest()
+        public void SV_IncrementMinorTest()
         {
             SemVer version = new SemVer(1, 2, 3);
             version = version.IncrementMinor();
@@ -23,7 +40,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void IncrementPatchTest()
+        public void SV_IncrementPatchTest()
         {
             SemVer version = new SemVer(1, 2, 3);
             version = version.IncrementPatch();
@@ -31,7 +48,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void SetPrereleaseTest()
+        public void SV_SetPrereleaseTest()
         {
             SemVer version = SemVer.Parse("1.2.3-4567+890");
             version = version.SetPrerelease("5678");
@@ -40,7 +57,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void SetBuildTest()
+        public void SV_SetBuildTest()
         {
             SemVer version = SemVer.Parse("1.2.3-4567+890");
             version = version.SetBuild("5678");
@@ -49,13 +66,13 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void GetHashCodeTest()
+        public void SV_GetHashCodeTest()
         {
             Assert.AreNotEqual(SemVer.Parse("1.2.3-4+5"), SemVer.Parse("1.2.3-4+6"));
         }
 
         [TestMethod]
-        public void ToStringTest()
+        public void SV_ToStringTest()
         {
             string ver = "56548.1861.1863457-asd873-ASD+8500-asd-ASDU-8";
             Assert.AreEqual(ver, SemVer.Parse(ver).ToString());
@@ -64,7 +81,7 @@ namespace Unlimitedinf.Tools.IntTests
         #region Tests from blog, adapted to fit my specifics
 
         [TestMethod]
-        public void CompareToComparesTwoSemVerObjects()
+        public void SV_CompareToComparesTwoSemVerObjects()
         {
             var version1 = new SemVer(1, 0, 0);
             var version2 = new SemVer(1, 0, 0);
@@ -72,7 +89,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void MajorVersionIsLessThanOther()
+        public void SV_MajorVersionIsLessThanOther()
         {
             var version1 = new SemVer(1, 2, 3);
             var version2 = new SemVer(2, 0, 0);
@@ -80,7 +97,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void MinorVersionIsGreaterThanOther()
+        public void SV_MinorVersionIsGreaterThanOther()
         {
             var version1 = new SemVer(1, 2, 0);
             var version2 = new SemVer(1, 1, 0);
@@ -88,7 +105,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void PatchVersionIsLessThanOther()
+        public void SV_PatchVersionIsLessThanOther()
         {
             var version1 = new SemVer(1, 1, 3);
             var version2 = new SemVer(1, 1, 4);
@@ -96,7 +113,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void ReleaseVersionIsGreaterThanPrereleaseVersion()
+        public void SV_ReleaseVersionIsGreaterThanPrereleaseVersion()
         {
             var version1 = SemVer.Parse("1.0.0-alpha");
             var version2 = new SemVer(1, 0, 0);
@@ -105,14 +122,14 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void VersionIsEqualToItself()
+        public void SV_VersionIsEqualToItself()
         {
             var version = new SemVer(1, 0, 0);
             Assert.IsTrue(version.Equals(version));
         }
 
         [TestMethod]
-        public void VersionIsNotEqualToNull()
+        public void SV_VersionIsNotEqualToNull()
         {
             var version = new SemVer(1, 0, 0);
             Assert.IsFalse(version == null);
@@ -124,7 +141,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void VersionIsTheSameAsItself()
+        public void SV_VersionIsTheSameAsItself()
         {
             var version = new SemVer(1, 0, 0);
             Assert.AreEqual(0, version.CompareTo(version));
@@ -132,7 +149,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void VersionsAreComparedCorrectly()
+        public void SV_VersionsAreComparedCorrectly()
         {
             var version1 = SemVer.Parse("1.0.0-alpha");
             var version2 = SemVer.Parse("1.0.0-alpha.1");
@@ -163,7 +180,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void VersionsAreEqual()
+        public void SV_VersionsAreEqual()
         {
             var version1 = SemVer.Parse("1.0.0-alpha+build.1");
             var version2 = SemVer.Parse("1.0.0-alpha+build.2");
@@ -175,7 +192,7 @@ namespace Unlimitedinf.Tools.IntTests
         }
 
         [TestMethod]
-        public void VersionsAreNotEqual()
+        public void SV_VersionsAreNotEqual()
         {
             var version1 = SemVer.Parse("1.0.0");
             var version2 = SemVer.Parse("1.0.0-alpha+build.1");
@@ -186,7 +203,7 @@ namespace Unlimitedinf.Tools.IntTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void VersionCannotBeComparedToNull()
+        public void SV_VersionCannotBeComparedToNull()
         {
             var version1 = new SemVer(1, 0, 0);
             SemVer version2 = null;

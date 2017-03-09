@@ -1,5 +1,6 @@
 ﻿namespace Unlimitedinf.Tools
 {
+    using Newtonsoft.Json;
     using System;
     using System.Text.RegularExpressions;
 
@@ -14,6 +15,7 @@
     /// <see href="http://www.michaelfcollins3.me/blog/2013/01/23/semantic_versioning_dotnet.html"/>.
     /// Based on semver version 2.0.0
     /// </remarks>
+    [JsonConverter(typeof(SemVerConverter))]
     public class SemVer : IComparable<SemVer>, IEquatable<SemVer>
     {
         /// <summary>
@@ -396,4 +398,34 @@
         }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
+
+    #region SemVerConverter
+
+    /// <summary>
+    /// Enable Json.NET serialization and deserialization.
+    /// </summary>
+    public sealed class SemVerConverter : JsonConverter
+    {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public override bool CanConvert(Type objectType)
+        {
+            return objectType == typeof(SemVer);
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "3")]
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            return SemVer.Parse(serializer.Deserialize<string>(reader));
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "2")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "1")]
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            serializer.Serialize(writer, value.ToString());
+        }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+    }
+
+    #endregion
 }

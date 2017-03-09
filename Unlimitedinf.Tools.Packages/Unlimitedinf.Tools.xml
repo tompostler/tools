@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <releaseNotes>
+      3.0.1
+      
+      - Added SemVer serializer to serialize SemVers as strings.
+      
       3.0.0
 
       - Broke apart the original package based on dependencies.
