@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
-  <LastUpdated>2017-03-09</LastUpdated>
+  <LastUpdated>2017-03-12</LastUpdated>
   <metadata>
-    <version>3.0.1</version>
+    <version>3.0.2</version>
     <releaseNotes>
+      3.0.2
+      
+      - Added new String.GetHashCode extension.
+      
       3.0.1
       
-      - Added SemVer serializer to serialize SemVers as strings.
-      
-      3.0.0
-
       - Broke apart the original package based on dependencies.
       - Remove t4 templating artifacts because powershell is much easier to work with.
+      - Other vaious tune-ups and changes all over.
     </releaseNotes>
     <tags>tools unlimitedinf semver</tags>
     <description>

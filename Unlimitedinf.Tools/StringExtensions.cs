@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Unlimitedinf.Tools.Hashing;
 
 namespace Unlimitedinf.Tools
 {
@@ -166,6 +168,22 @@ namespace Unlimitedinf.Tools
             if (!TryParseRelativeDateTime(toParse, out result))
                 throw new FormatException($"Could not parse relative DateTime from '{toParse}'");
             return result;
+        }
+
+        private static readonly MemoryCache getHashCodeCache = new MemoryCache(nameof(getHashCodeCache));
+        private static readonly CacheItemPolicy defaultCachePolicy = new CacheItemPolicy { SlidingExpiration = new TimeSpan(0, 10, 0) };
+        /// <summary>
+        /// An extension to <see cref="String.GetHashCode"/> that gets hash codes other than the default int.
+        /// </summary>
+        public static string GetHashCode(this string input, Hasher.Algorithm algorithm)
+        {
+            string alg = algorithm.ToString();
+            if (getHashCodeCache.Contains(alg))
+                return (getHashCodeCache.Get(alg) as Hasher).ComputeHashS(input);
+
+            Hasher hasher = new Hasher(algorithm);
+            getHashCodeCache.Add(alg, hasher, defaultCachePolicy);
+            return hasher.ComputeHashS(input);
         }
     }
 }

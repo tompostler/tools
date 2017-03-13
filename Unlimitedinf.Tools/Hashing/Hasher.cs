@@ -3,6 +3,7 @@
     using System;
     using System.IO;
     using System.Security.Cryptography;
+    using System.Text;
 
     /// <summary>
     /// A wrapper for common hashing functions to operate on streams or files.
@@ -94,8 +95,6 @@
         /// <summary>
         /// Compute the hash from a given stream.
         /// </summary>
-        /// <param name="inputStream"></param>
-        /// <returns></returns>
         public byte[] ComputeHash(Stream inputStream)
         {
             // Temporary workaround warranting further investigation.
@@ -108,11 +107,17 @@
         /// <summary>
         /// Compute the hash from a given stream and return it as a string.
         /// </summary>
-        /// <param name="inputStream"></param>
-        /// <returns></returns>
         public string ComputeHashS(Stream inputStream)
         {
             return BitConverter.ToString(this.ComputeHash(inputStream)).Replace("-", "");
+        }
+
+        /// <summary>
+        /// Compute the hash from a string, assuming that string is UTF8.
+        /// </summary>
+        public string ComputeHashS(string input)
+        {
+            return this.ComputeHashS(new MemoryStream(Encoding.UTF8.GetBytes(input ?? "")));
         }
     }
 }

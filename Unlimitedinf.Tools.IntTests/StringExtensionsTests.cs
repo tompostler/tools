@@ -6,6 +6,13 @@ namespace Unlimitedinf.Tools.IntTests
     [TestClass]
     public partial class StringExtensionsTests
     {
+        [TestMethod]
+        public void StringEx_GetHashCode_Sha512()
+        {
+            string expected = "73475CB40A568E8DA8A045CED110137E159F890AC4DA883B6B17DC651B3A8049";
+            string actual = "42".GetHashCode(Tools.Hashing.Hasher.Algorithm.SHA256);
+            Assert.AreEqual(expected, actual);
+        }
     }
 
     public static class Dassert
