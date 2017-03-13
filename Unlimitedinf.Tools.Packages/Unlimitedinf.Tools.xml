@@ -1,24 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
-  <LastUpdated>2017-03-12</LastUpdated>
+  <LastUpdated>2017-03-13</LastUpdated>
   <metadata>
-    <version>3.0.2</version>
+    <version>3.0.3</version>
     <releaseNotes>
-      3.0.2
+3.0.3
       
-      - Added new String.GetHashCode extension.
+  - Fixed a bug in String.TrypParseRelativeDateTime that could throw an ArgumentOutOfRangeException.
+  - Added the String.GetHashCode* methods because they're easier to consume.
       
-      3.0.1
+3.0.2
       
-      - Broke apart the original package based on dependencies.
-      - Remove t4 templating artifacts because powershell is much easier to work with.
-      - Other vaious tune-ups and changes all over.
+  - Added new String.GetHashCode extension.
+      
+3.0.1
+      
+  - Broke apart the original package based on dependencies.
+  - Remove t4 templating artifacts because powershell is much easier to work with.
+  - Other vaious tune-ups and changes all over.
     </releaseNotes>
     <tags>tools unlimitedinf semver</tags>
     <description>
-      A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
+A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
       
-      See source README for full explanation.
+See source README for full explanation.
     </description>
   </metadata>
 </package>

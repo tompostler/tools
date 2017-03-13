@@ -136,24 +136,31 @@ namespace Unlimitedinf.Tools
             if (!success)
                 return false;
 
-            if (R.InPast.IsMatch(toParse))
+            try
             {
-                result = DateTime.UtcNow
-                    .AddYears(-yea)
-                    .AddMonths(-mon)
-                    .AddDays(-wee * 7 - day - spe)
-                    .AddHours(-hou)
-                    .AddMinutes(-min)
-                    .AddSeconds(-sec);
+                if (R.InPast.IsMatch(toParse))
+                {
+                    result = DateTime.UtcNow
+                        .AddYears(-yea)
+                        .AddMonths(-mon)
+                        .AddDays(-wee * 7 - day - spe)
+                        .AddHours(-hou)
+                        .AddMinutes(-min)
+                        .AddSeconds(-sec);
+                }
+                else
+                    result = DateTime.UtcNow
+                        .AddYears(yea)
+                        .AddMonths(mon)
+                        .AddDays(wee * 7 + day + spe)
+                        .AddHours(hou)
+                        .AddMinutes(min)
+                        .AddSeconds(sec);
             }
-            else
-                result = DateTime.UtcNow
-                    .AddYears(yea)
-                    .AddMonths(mon)
-                    .AddDays(wee * 7 + day + spe)
-                    .AddHours(hou)
-                    .AddMinutes(min)
-                    .AddSeconds(sec);
+            catch (ArgumentOutOfRangeException)
+            {
+                return false;
+            }
 
             return true;
         }
@@ -184,6 +191,41 @@ namespace Unlimitedinf.Tools
             Hasher hasher = new Hasher(algorithm);
             getHashCodeCache.Add(alg, hasher, defaultCachePolicy);
             return hasher.ComputeHashS(input);
+        }
+        /// <summary>
+        /// Get a hash code for a string using MD5.
+        /// </summary>
+        public static string GetHashCodeMd5(this string input)
+        {
+            return input.GetHashCode(Hasher.Algorithm.MD5);
+        }
+        /// <summary>
+        /// Get a hash code for a string using Crc32.
+        /// </summary>
+        public static string GetHashCodeCrc32(this string input)
+        {
+            return input.GetHashCode(Hasher.Algorithm.Crc32);
+        }
+        /// <summary>
+        /// Get a hash code for a string using SHA1.
+        /// </summary>
+        public static string GetHashCodeSha1(this string input)
+        {
+            return input.GetHashCode(Hasher.Algorithm.SHA1);
+        }
+        /// <summary>
+        /// Get a hash code for a string using SHA256.
+        /// </summary>
+        public static string GetHashCodeSha256(this string input)
+        {
+            return input.GetHashCode(Hasher.Algorithm.SHA256);
+        }
+        /// <summary>
+        /// Get a hash code for a string using SHA512.
+        /// </summary>
+        public static string GetHashCodeSha512(this string input)
+        {
+            return input.GetHashCode(Hasher.Algorithm.SHA512);
         }
     }
 }
