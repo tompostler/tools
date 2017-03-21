@@ -1,9 +1,11 @@
-# Tom Postler, 2017-03-06
+# Tom Postler, 2017-03-21
 # Remove nupkg files that are already published
 
 # Set CWD to script location
 Push-Location $PSScriptRoot
 [Environment]::CurrentDirectory = $PWD
+
+if (Test-Path ".\alreadypublished") {
 
 # What packages do we need to look at?
 $packageIds = Get-Content ".\alreadypublished";
@@ -12,20 +14,22 @@ $packageIds = Get-Content ".\alreadypublished";
 foreach ($packageId in $packageIds) {
     $packageId, $version = $packageId.Split(' ');
 
-    $packagePath = "..\$packageId\$packageId.$version.nupkg"
-	if (Test-Path "$packagePath") {
-		Remove-Item $packagePath;
-		Write-Host "Removed $packagePath";
-	} else {
-		# Some VSTS builds seems to but it in the root for some reason
-		$packagePath = "..\$packageId.$version.nupkg"
-		if (Test-Path "$packagePath") {
-			Remove-Item $packagePath;
-			Write-Host "Removed $packagePath";
-		} else {
-			Write-Error "Could not find $packageId.$version.nupkg to remove.";
-		}
-	}
+    $paths = @(
+        ".\bin\Debug\$packageId.$version.nupkg",
+        ".\bin\Release\$packageId.$version.nupkg",
+        ".\bin\Debug\$packageId.$version.symbols.nupkg",
+        ".\bin\Release\$packageId.$version.symbols.nupkg"
+    );
+    foreach ($path in $paths) {
+        if (Test-Path "$path") {
+            Remove-Item $path;
+            Write-Host "Removed $path";
+        } else {
+            Write-Error "Could not find $path to remove.";
+        }
+    }
+}
+
 }
 
 # Restore CWD

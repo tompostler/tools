@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="GenerateNuprojs" BeforeTargets="Build">
+    <Exec Command="powershell -file &quot;Unlimitedinf.Tools.Packages\Create-Nuprojs.ps1&quot;" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>powershell Write-Host -ForegroundColor Red "HEY LOOK AT ME"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

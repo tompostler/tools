@@ -13,7 +13,7 @@ $notFound = 0;
 foreach ($packageId in $packageIds) {
     # Get the version from the xml
     [xml]$packageXml = Get-Content ".\$packageId.xml";
-    $version = $packageXml.package.metadata.version
+    $version = $packageXml.Project.PropertyGroup.Version
     Write-Host "Found version '$version' in $packageId.xml";
 
     # Get the nuget package repository

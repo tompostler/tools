@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package>
-  <metadata>
-    <version>3.0.0</version>
-    <releaseNotes>
-      3.0.0
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Configuration">
+    
+    <LastUpdated>2017-03-21</LastUpdated>
+    <Version>3.0.1</Version>
+    
+    <ReleaseNotes>
+3.0.1
 
-      - Broke apart the original package based on dependencies.
-      - See the source for full additions. Contains extensions for Int32, Int64, and BigInteger.
-    </releaseNotes>
-    <tags>tools unlimitedinf numerics primes extensions projecteuler</tags>
-    <description>Various extensions to the basic numeric classes that help with computation. An attempt was made at optimization of the methods with improvements always welcome.</description>
-  </metadata>
-  <LastUpdated>2017-03-05</LastUpdated>
-</package>
+  - Added builds for net40, net45, net46, and latest.
+
+3.0.0
+
+  - Broke apart the original package based on dependencies.
+  - See the source for full additions. Contains extensions for Int32, Int64, and BigInteger.
+    </ReleaseNotes>
+    
+    <Tags>tools unlimitedinf numerics primes extensions projecteuler</Tags>
+    <Description>Various extensions to the basic numeric classes that help with computation. An attempt was made at optimization of the methods with improvements always welcome.</Description>
+  </PropertyGroup>
+</Project>

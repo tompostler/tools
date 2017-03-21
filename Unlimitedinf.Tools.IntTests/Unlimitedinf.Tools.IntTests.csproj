@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Unlimitedinf.Tools.IntTests</RootNamespace>
     <AssemblyName>Unlimitedinf.Tools.IntTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -18,6 +18,7 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,15 +77,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.csproj">
+    <ProjectReference Include="..\Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Latest\Unlimitedinf.Tools.Numerics.csproj">
       <Project>{a17bbb82-5a8c-45e9-81c1-287908728266}</Project>
       <Name>Unlimitedinf.Tools.Numerics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.csproj">
+    <ProjectReference Include="..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Latest\Unlimitedinf.Tools.Statics.csproj">
       <Project>{fbd2ccb8-32b7-4581-a9f2-3d1d33f742fa}</Project>
       <Name>Unlimitedinf.Tools.Statics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj">
+    <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.Latest\Unlimitedinf.Tools.csproj">
       <Project>{a58098c7-2467-4220-a485-59b80ebb12fd}</Project>
       <Name>Unlimitedinf.Tools</Name>
     </ProjectReference>
@@ -92,7 +93,7 @@
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1" "$(AssemblyName)"
+    <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1 $(ProjectDir) $(AssemblyName)"
 powershell "$(ProjectDir)StringExtensionsTests.ps1"</PreBuildEvent>
   </PropertyGroup>
 </Project>

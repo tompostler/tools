@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Unlimitedinf.Tools.UnitTests</RootNamespace>
     <AssemblyName>Unlimitedinf.Tools.UnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -52,7 +52,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj">
+    <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.Latest\Unlimitedinf.Tools.csproj">
       <Project>{A58098C7-2467-4220-A485-59B80EBB12FD}</Project>
       <Name>Unlimitedinf.Tools</Name>
     </ProjectReference>
@@ -61,6 +61,6 @@
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1 $(AssemblyName)"</PreBuildEvent>
+    <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1 $(ProjectDir) $(AssemblyName)"</PreBuildEvent>
   </PropertyGroup>
 </Project>

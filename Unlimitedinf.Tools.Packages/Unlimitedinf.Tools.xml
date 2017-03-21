@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package>
-  <LastUpdated>2017-03-13</LastUpdated>
-  <metadata>
-    <version>3.0.3</version>
-    <releaseNotes>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Configuration">
+    
+    <LastUpdated>2017-03-21</LastUpdated>
+    <Version>3.0.4</Version>
+    
+    <ReleaseNotes>
+3.0.4
+
+  - Added builds for net40, net45, net46, and latest.
+
 3.0.3
       
   - Fixed a bug in String.TrypParseRelativeDateTime that could throw an ArgumentOutOfRangeException.
@@ -18,12 +24,13 @@
   - Broke apart the original package based on dependencies.
   - Remove t4 templating artifacts because powershell is much easier to work with.
   - Other vaious tune-ups and changes all over.
-    </releaseNotes>
-    <tags>tools unlimitedinf semver</tags>
-    <description>
+    </ReleaseNotes>
+    
+    <Tags>tools unlimitedinf semver</Tags>
+    <Description>
 A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
       
 See source README for full explanation.
-    </description>
-  </metadata>
-</package>
+    </Description>
+  </PropertyGroup>
+</Project>

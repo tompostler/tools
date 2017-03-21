@@ -66,7 +66,8 @@ orleans.codegen.cs
 # Microsoft Fakes
 FakesAssemblies/
 
+# Generated files
 LocalAssemblyInfo.cs
 *.generated.cs
-*.nuspec
+*.nuproj
 Unlimitedinf.Tools.Packages/alreadypublished

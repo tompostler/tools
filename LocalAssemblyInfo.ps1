@@ -1,7 +1,8 @@
-﻿# Tom Postler, 2017-03-05
+﻿# Tom Postler, 2017-03-16
 # Generate specific assembly information
 
 param(
+	[Parameter(Mandatory=$true)][string]$ProjectDir,
 	[Parameter(Mandatory=$true)][string]$AssemblyId
 )
 
@@ -19,8 +20,8 @@ if (Test-Path $PackageInfoPath) {
 
 	# Get the necesary information out of the XML
 	[xml]$packageInfo = Get-Content $PackageInfoPath;
-	$Version = $packageInfo.package.metadata.version;
-	$Prerelease = $packageInfo.package.LastUpdated;
+	$Version = $packageInfo.Project.PropertyGroup.Version;
+	$Prerelease = $packageInfo.Project.PropertyGroup.LastUpdated;
 
 	# Remove anything that would disagree with AssemblyVersion
 	if ($Version.Contains("-")) {
@@ -38,8 +39,8 @@ if (Test-Path $PackageInfoPath) {
 }
 
 # Guard against efficiency?
-if (!(Test-Path ".\$AssemblyId\Properties")) {
-	New-Item ".\$AssemblyId\Properties" -ItemType Directory > $null;
+if (!(Test-Path "$ProjectDir\Properties")) {
+	New-Item "$ProjectDir\Properties" -ItemType Directory > $null;
 }
 
 # The file contents
@@ -55,7 +56,7 @@ using System.Reflection;
 
 [assembly: AssemblyVersion("{0}.{1}.0.0")]
 [assembly: AssemblyFileVersion("{0}.{1}.{2}.{3}")]
-"@ -f $Major, $Minor, $Patch, $Prerelease > ".\$AssemblyId\Properties\LocalAssemblyInfo.cs";
+"@ -f $Major, $Minor, $Patch, $Prerelease > "$ProjectDir\Properties\LocalAssemblyInfo.cs";
 
 Write-Host "Generated local assembly info.";
 

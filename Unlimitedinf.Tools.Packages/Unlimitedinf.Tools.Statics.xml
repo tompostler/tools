@@ -1,15 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package>
-  <metadata>
-    <version>3.0.0</version>
-    <releaseNotes>
-      3.0.0
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Configuration">
+    
+    <LastUpdated>2017-03-21</LastUpdated>
+    <Version>3.0.1</Version>
+    
+    <ReleaseNotes>
+3.0.1
 
-      - Broke apart the original package based on dependencies.
-      - Added the prime integers from 2 to 1000003, inclusive, as an unordered set and an ordered array.
-    </releaseNotes>
-    <tags>tools unlimitedinf static primes</tags>
-    <description>Contains the prime numbers below one million.</description>
-  </metadata>
-  <LastUpdated>2017-03-03</LastUpdated>
-</package>
+  - Added builds for net40, net45, net46, and latest.
+
+3.0.0
+
+  - Broke apart the original package based on dependencies.
+  - Added the prime integers from 2 to 1000003, inclusive, as an unordered set and an ordered array.
+    </ReleaseNotes>
+    
+    <Tags>tools unlimitedinf static primes</Tags>
+    <Description>Contains the prime numbers below one million.</Description>
+  </PropertyGroup>
+</Project>

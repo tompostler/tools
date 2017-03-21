@@ -9,12 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Unlimitedinf.Tools.Numerics</RootNamespace>
     <AssemblyName>Unlimitedinf.Tools.Numerics</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>..\unlimitedinf.ico</ApplicationIcon>
+    <ApplicationIcon>..\..\unlimitedinf.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,7 +26,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\Unlimitedinf.Tools.Numerics.XML</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\noglob.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\noglob.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,7 +37,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Unlimitedinf.Tools.Numerics.XML</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\noglob.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\noglob.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,18 +49,18 @@
     <Compile Include="Int32\Int32Extensions.cs" />
     <Compile Include="Int64\Int64Extensions.cs" />
     <Compile Include="Properties\LocalAssemblyInfo.cs" />
-    <Compile Include="..\CommonAssemblyInfo.cs">
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.csproj">
+    <ProjectReference Include="..\..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Latest\Unlimitedinf.Tools.Statics.csproj">
       <Project>{fbd2ccb8-32b7-4581-a9f2-3d1d33f742fa}</Project>
       <Name>Unlimitedinf.Tools.Statics</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1 $(AssemblyName)"</PreBuildEvent>
+    <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1 $(ProjectDir) $(AssemblyName)"</PreBuildEvent>
   </PropertyGroup>
 </Project>
