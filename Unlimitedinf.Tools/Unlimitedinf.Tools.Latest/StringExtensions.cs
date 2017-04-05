@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Caching;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Unlimitedinf.Tools.Hashing;
 
 namespace Unlimitedinf.Tools
@@ -35,7 +31,7 @@ namespace Unlimitedinf.Tools
             // default to future computation
 
             private static char[] SlashS = new char[] { ' ', '\t', '\r', '\n', '\f', '\v' };
-            public static int FromMatch(string match)
+            public static long FromMatch(string match)
             {
                 int whitespaceIndex = match.IndexOfAny(SlashS);
                 if (whitespaceIndex >= 0)
@@ -43,8 +39,8 @@ namespace Unlimitedinf.Tools
                 if (match.StartsWith("0") && match.TrimStart('0').Length > 0)
                     match = match.TrimStart('0');
 
-                int result;
-                if (int.TryParse(match, out result))
+                long result;
+                if (long.TryParse(match, out result))
                     return result;
                 match = match.ToUpperInvariant();
                 if (match.StartsWith("LAST"))
@@ -55,7 +51,7 @@ namespace Unlimitedinf.Tools
                     return 0;
                 throw new ArgumentException("Didn't know what to do with " + nameof(match));
             }
-            public static int FromMatch(Match match) => FromMatch(match.Value.Substring(0, match.Value.IndexOfAny(SlashS)));
+            public static long FromMatch(Match match) => FromMatch(match.Value.Substring(0, match.Value.IndexOfAny(SlashS)));
         }
 
         /// <summary>
@@ -69,7 +65,7 @@ namespace Unlimitedinf.Tools
             if (DateTime.TryParse(toParse, out result))
                 return true;
 
-            int yea = 0, mon = 0, wee = 0, day = 0, spe = 0, hou = 0, min = 0, sec = 0;
+            long yea = 0, mon = 0, wee = 0, day = 0, spe = 0, hou = 0, min = 0, sec = 0;
 
             bool success = false;
             var match = R.Year.Match(toParse);
@@ -138,20 +134,21 @@ namespace Unlimitedinf.Tools
 
             try
             {
+                if (yea > int.MaxValue || mon > int.MaxValue)
+                    return false;
+
                 if (R.InPast.IsMatch(toParse))
-                {
                     result = DateTime.UtcNow
-                        .AddYears(-yea)
-                        .AddMonths(-mon)
+                        .AddYears(-(int)yea)
+                        .AddMonths(-(int)mon)
                         .AddDays(-wee * 7 - day - spe)
                         .AddHours(-hou)
                         .AddMinutes(-min)
                         .AddSeconds(-sec);
-                }
                 else
                     result = DateTime.UtcNow
-                        .AddYears(yea)
-                        .AddMonths(mon)
+                        .AddYears((int)yea)
+                        .AddMonths((int)mon)
                         .AddDays(wee * 7 + day + spe)
                         .AddHours(hou)
                         .AddMinutes(min)

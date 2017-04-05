@@ -2,10 +2,14 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Configuration">
     
-    <LastUpdated>2017-03-21</LastUpdated>
-    <Version>3.0.4</Version>
+    <LastUpdated>2017-04-04</LastUpdated>
+    <Version>3.0.5</Version>
     
     <ReleaseNotes>
+3.0.5
+
+  - Fixed a bug in TryParseRelativeDateTime that threw instead of returned false for above int.Max. Now will only throw for above long.MaxValue.
+
 3.0.4
 
   - Added builds for net40, net45, net46, and latest.

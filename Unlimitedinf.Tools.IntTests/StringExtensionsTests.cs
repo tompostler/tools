@@ -13,6 +13,14 @@ namespace Unlimitedinf.Tools.IntTests
             string actual = "42".GetHashCode(Tools.Hashing.Hasher.Algorithm.SHA256);
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void StringEx_Parse_TooManyYears_Plus()
+        {
+            DateTime dt;
+            var result = "50000000000 year".TryParseRelativeDateTime(out dt);
+            Assert.IsFalse(result);
+        }
     }
 
     public static class Dassert
