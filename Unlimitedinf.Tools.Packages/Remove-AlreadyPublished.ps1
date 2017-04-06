@@ -1,4 +1,4 @@
-# Tom Postler, 2017-03-21
+# Tom Postler, 2017-04-06
 # Remove nupkg files that are already published
 
 # Set CWD to script location
@@ -15,9 +15,7 @@ foreach ($packageId in $packageIds) {
     $packageId, $version = $packageId.Split(' ');
 
     $paths = @(
-        ".\bin\Debug\$packageId.$version.nupkg",
         ".\bin\Release\$packageId.$version.nupkg",
-        ".\bin\Debug\$packageId.$version.symbols.nupkg",
         ".\bin\Release\$packageId.$version.symbols.nupkg"
     );
     foreach ($path in $paths) {
