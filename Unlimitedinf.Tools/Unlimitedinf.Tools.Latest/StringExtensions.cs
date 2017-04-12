@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Caching;
+using System.Text;
 using System.Text.RegularExpressions;
 using Unlimitedinf.Tools.Hashing;
 
@@ -223,6 +224,37 @@ namespace Unlimitedinf.Tools
         public static string GetHashCodeSha512(this string input)
         {
             return input.GetHashCode(Hasher.Algorithm.SHA512);
+        }
+
+        /// <summary>
+        /// Chop a string from 0 to length.
+        /// </summary>
+        public static string Chop(this string input, int length)
+        {
+            if (input == null)
+                throw new ArgumentNullException(input);
+            if (length < 0)
+                throw new ArgumentOutOfRangeException(nameof(length));
+            if (length == 0)
+                return string.Empty;
+
+            return input.Substring(0, length);
+        }
+
+        /// <summary>
+        /// Convert a string to Base64.
+        /// </summary>
+        public static string ToBase64String(this string input)
+        {
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(input));
+        }
+
+        /// <summary>
+        /// Convert from a Base64 string.
+        /// </summary>
+        public static string FromBase64String(this string input)
+        {
+            return Encoding.UTF8.GetString(Convert.FromBase64String(input));
         }
     }
 }

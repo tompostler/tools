@@ -21,6 +21,24 @@ namespace Unlimitedinf.Tools.IntTests
             var result = "50000000000 year".TryParseRelativeDateTime(out dt);
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void StringEx_Chop()
+        {
+            Assert.AreEqual("foo", "football".Chop(3));
+        }
+
+        [TestMethod]
+        public void StringEx_Base64String()
+        {
+            const string input = "Here's some data!";
+
+            var result = input.ToBase64String();
+            Assert.AreEqual("SGVyZSdzIHNvbWUgZGF0YSE=", result);
+
+            result = result.FromBase64String();
+            Assert.AreEqual(input, result);
+        }
     }
 
     public static class Dassert
