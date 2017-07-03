@@ -21,6 +21,7 @@ Currently just contains `Unlimitedinf.Tools.dll`.
 |`GenerateRandom`|A class containing various methods to generate random information using the `RNGCryptoServiceProvider`|
 |`Id`|A lighter-weight id tracker to replace the heftiness of Guid. 4 billion unique Ids, with 2 billion before statistically likely collisions built on a backing datatype of 4 bytes.|
 |`SemVer`|To help with representing and performing operations on semantic versions version 2 ([SemVer.org](http://semver.org/spec/v2.0.0.html))|
+|`IO.FileSystemCollection`|Class for enumerating files and directories in a way that exposes through an `IEnumerable` and tries to gracefully ignore the most common exceptions it encounters.|
 |`IO.ThrottledStream`|Class for streaming data with throttling support|
 |`Hashing.Hasher`|A wrapper for common hashing functions to operate on streams or files|
 |`Hashing.Crc32`|Implements the Crc32 checksum as a `HashAlgorithm`|
@@ -35,7 +36,7 @@ Currently just contains `Unlimitedinf.Tools.dll`.
 
 _The ruff tuff number-crunchin maniac nuget package_
 
-Initially started as part of my solutions to [Project Euler](www.projecteuler.net), these useful functions were broken out into their own DLL, and then their own package, to maximize reusability.
+Initially started as part of my solutions to [Project Euler](http://www.projecteuler.net), these useful functions were broken out into their own DLL, and then their own package, to maximize reusability.
 
 For a list of all functions available, see the source.
 

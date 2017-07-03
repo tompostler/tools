@@ -72,6 +72,9 @@
     <Compile Include="..\Unlimitedinf.Tools.Latest\Id.cs">
       <Link>Id.cs</Link>
     </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\IO\FileSystemCollection.cs">
+      <Link>IO\FileSystemCollection.cs</Link>
+    </Compile>
     <Compile Include="..\Unlimitedinf.Tools.Latest\IO\ThrottledStream.cs">
       <Link>IO\ThrottledStream.cs</Link>
     </Compile>

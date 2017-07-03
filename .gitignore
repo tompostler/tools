@@ -71,3 +71,4 @@ LocalAssemblyInfo.cs
 *.generated.cs
 *.nuproj
 Unlimitedinf.Tools.Packages/alreadypublished
+UpgradeLog.htm
