@@ -20,6 +20,7 @@ Currently just contains `Unlimitedinf.Tools.dll`.
 |:--|:--|
 |`GenerateRandom`|A class containing various methods to generate random information using the `RNGCryptoServiceProvider`|
 |`Id`|A lighter-weight id tracker to replace the heftiness of Guid. 4 billion unique Ids, with 2 billion before statistically likely collisions built on a backing datatype of 4 bytes.|
+|`Log`|A custom wrapper for the standard `Console.WriteLine` method that prints the way I normally do for my projects.|
 |`SemVer`|To help with representing and performing operations on semantic versions version 2 ([SemVer.org](http://semver.org/spec/v2.0.0.html))|
 |`IO.FileSystemCollection`|Class for enumerating files and directories in a way that exposes through an `IEnumerable` and tries to gracefully ignore the most common exceptions it encounters.|
 |`IO.ThrottledStream`|Class for streaming data with throttling support|
