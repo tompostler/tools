@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <NuProjPath Condition=" '$(NuProjPath)' == '' ">..\packages\NuProj.0.11.14-beta\tools\</NuProjPath>
+    <NuProjPath Condition=" '$(NuProjPath)' == '' ">..\packages\NuProj.0.11.30\tools\</NuProjPath>
   </PropertyGroup>
   
   <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
