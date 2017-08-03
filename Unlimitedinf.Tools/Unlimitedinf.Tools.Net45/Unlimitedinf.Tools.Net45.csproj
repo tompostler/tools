@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>..\..\unlimitedinf.ico</ApplicationIcon>
@@ -38,9 +40,8 @@
     <DocumentationFile>bin\Release\Unlimitedinf.Tools.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -78,6 +79,9 @@
     <Compile Include="..\Unlimitedinf.Tools.Latest\IO\ThrottledStream.cs">
       <Link>IO\ThrottledStream.cs</Link>
     </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\Log.cs">
+      <Link>Log.cs</Link>
+    </Compile>
     <Compile Include="..\Unlimitedinf.Tools.Latest\SemVer.cs">
       <Link>SemVer.cs</Link>
     </Compile>
@@ -99,5 +103,11 @@
   <PropertyGroup>
     <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1 $(ProjectDir) $(AssemblyName)"</PreBuildEvent>
   </PropertyGroup>
-  <Import Project="..\..\packages\NuProj.Common.0.11.14-beta\build\dotnet\NuProj.Common.targets" Condition="Exists('..\..\packages\NuProj.Common.0.11.14-beta\build\dotnet\NuProj.Common.targets')" />
+  <Import Project="..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets" Condition="Exists('..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets'))" />
+  </Target>
 </Project>

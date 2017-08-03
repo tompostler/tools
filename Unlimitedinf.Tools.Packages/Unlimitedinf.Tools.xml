@@ -2,10 +2,14 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Configuration">
     
-    <LastUpdated>2017-07-03</LastUpdated>
-    <Version>3.1.0</Version>
+    <LastUpdated>2017-08-02</LastUpdated>
+    <Version>3.2.0</Version>
     
     <ReleaseNotes>
+3.2.0
+
+  - Added Log to provide the custom logging that I tend to use across all my projects.
+
 3.1.0
 
   - Added FileSystemCollection to enumerate files/directories with an enumerable that gracefully ignores exceptions thrown during usage.
@@ -42,7 +46,7 @@
   - Other vaious tune-ups and changes all over.
     </ReleaseNotes>
     
-    <Tags>tools unlimitedinf semver</Tags>
+    <Tags>tools unlimitedinf semver log</Tags>
     <Description>
 A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
       
