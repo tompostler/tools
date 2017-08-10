@@ -7,7 +7,7 @@ namespace Unlimitedinf.Tools
     /// </summary>
     /// <remarks>
     /// A log message can look like:
-    ///     PROGRAMNAME: 2017-04-20 03:14:15.927: INF: here's the message.
+    ///     2017-04-20 03:14:15.927: INF: PROGRAMNAME: here's the message.
     /// Each portion of this message is customizable and can be turned on or off per invocation.
     /// </remarks>
     public static class Log
@@ -83,16 +83,16 @@ namespace Unlimitedinf.Tools
         /// Logs a verbose message that starts with 'VER: ' and is blue in color.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Ver(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Ver(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
             if (Verbosity >= VerbositySetting.Verbose)
                 WriteLine(
-                    (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "VER: " : string.Empty) +
+                    (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
                     message,
                     ConsoleColor.Blue);
         }
@@ -100,106 +100,106 @@ namespace Unlimitedinf.Tools
         /// Logs a verbose message that starts with 'VER: ' and is blue in color.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Verbose(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
-            => Ver(message, printProgramName, printDateTime, printVerbosityLevel);
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Verbose(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Ver(message, printDateTime, printVerbosityLevel, printProgramName);
 
         /// <summary>
         /// Logs an informational message that starts with 'INF: '.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Inf(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Inf(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
             if (Verbosity >= VerbositySetting.Informational)
                 WriteLine(
-                    (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "INF: " : string.Empty) +
+                    (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
                     message);
         }
         /// <summary>
         /// Logs an informational message that starts with 'INF: '.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Info(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
-            => Inf(message, printProgramName, printDateTime, printVerbosityLevel);
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Info(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Inf(message, printDateTime, printVerbosityLevel, printProgramName);
         /// <summary>
         /// Logs an informational message that starts with 'INF: '.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Informational(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
-            => Inf(message, printProgramName, printDateTime, printVerbosityLevel);
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Informational(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Inf(message, printDateTime, printVerbosityLevel, printProgramName);
 
         /// <summary>
         /// Logs a warning message that starts with 'WRN: ' and is yellow in color.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Wrn(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Wrn(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
             if (Verbosity >= VerbositySetting.Warning)
                 WriteLine(
-                    (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "WRN: " : string.Empty) +
+                    (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
                     message, ConsoleColor.Yellow);
         }
         /// <summary>
         /// Logs a warning message that starts with 'WRN: ' and is yellow in color.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Warn(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
-            => Wrn(message, printProgramName, printDateTime, printVerbosityLevel);
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Warn(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Wrn(message, printDateTime, printVerbosityLevel, printProgramName);
         /// <summary>
         /// Logs a warning message that starts with 'WRN: ' and is yellow in color.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Warning(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
-            => Wrn(message, printProgramName, printDateTime, printVerbosityLevel);
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Warning(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Wrn(message, printDateTime, printVerbosityLevel, printProgramName);
 
         /// <summary>
         /// Logs an error message that starts with 'ERR: ' and is red in color.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Err(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Err(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
             if (Verbosity >= VerbositySetting.Error)
                 WriteLine(
-                    (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "ERR: " : string.Empty) +
+                    (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
                     message, ConsoleColor.Red);
         }
         /// <summary>
         /// Logs an error message that starts with 'ERR: ' and is red in color.
         /// </summary>
         /// <param name="message">The message to log.</param>
-        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
-        public static void Error(string message, bool? printProgramName = null, bool? printDateTime = null, bool? printVerbosityLevel = null)
-            => Err(message, printProgramName, printDateTime, printVerbosityLevel);
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Error(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Err(message, printDateTime, printVerbosityLevel, printProgramName);
     }
 }
