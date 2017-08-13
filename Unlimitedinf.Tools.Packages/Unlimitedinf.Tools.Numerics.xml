@@ -2,10 +2,14 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Configuration">
     
-    <LastUpdated>2017-03-21</LastUpdated>
+    <LastUpdated>2017-08-13</LastUpdated>
     <Version>3.0.1</Version>
     
     <ReleaseNotes>
+3.0.2
+
+  - Fixed dependencies.
+
 3.0.1
 
   - Added builds for net40, net45, net46, and latest.
@@ -19,4 +23,7 @@
     <Tags>tools unlimitedinf numerics primes extensions projecteuler</Tags>
     <Description>Various extensions to the basic numeric classes that help with computation. An attempt was made at optimization of the methods with improvements always welcome.</Description>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="Unlimitedinf.Static.Nuproj" />
+  </ItemGroup>
 </Project>
