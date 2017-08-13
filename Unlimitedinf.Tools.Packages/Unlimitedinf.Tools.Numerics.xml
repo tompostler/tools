@@ -3,12 +3,12 @@
   <PropertyGroup Label="Configuration">
     
     <LastUpdated>2017-08-13</LastUpdated>
-    <Version>3.0.1</Version>
+    <Version>3.0.2</Version>
     
     <ReleaseNotes>
 3.0.2
 
-  - Fixed dependencies.
+  - Fixed dependencies?
 
 3.0.1
 
@@ -23,7 +23,8 @@
     <Tags>tools unlimitedinf numerics primes extensions projecteuler</Tags>
     <Description>Various extensions to the basic numeric classes that help with computation. An attempt was made at optimization of the methods with improvements always welcome.</Description>
   </PropertyGroup>
+  
   <ItemGroup>
-    <ProjectReference Include="Unlimitedinf.Static.Nuproj" />
+    <ProjectReference Include="Unlimitedinf.Tools.Statics.nuproj" />
   </ItemGroup>
 </Project>
