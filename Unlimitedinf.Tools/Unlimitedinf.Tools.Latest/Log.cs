@@ -88,7 +88,7 @@ namespace Unlimitedinf.Tools
         /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         public static void Ver(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
-            if (Verbosity >= VerbositySetting.Verbose)
+            if (Verbosity <= VerbositySetting.Verbose)
                 WriteLine(
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "VER: " : string.Empty) +
@@ -115,7 +115,7 @@ namespace Unlimitedinf.Tools
         /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         public static void Inf(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
-            if (Verbosity >= VerbositySetting.Informational)
+            if (Verbosity <= VerbositySetting.Informational)
                 WriteLine(
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "INF: " : string.Empty) +
@@ -150,7 +150,7 @@ namespace Unlimitedinf.Tools
         /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         public static void Wrn(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
-            if (Verbosity >= VerbositySetting.Warning)
+            if (Verbosity <= VerbositySetting.Warning)
                 WriteLine(
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "WRN: " : string.Empty) +
@@ -185,7 +185,7 @@ namespace Unlimitedinf.Tools
         /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         public static void Err(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
-            if (Verbosity >= VerbositySetting.Error)
+            if (Verbosity <= VerbositySetting.Error)
                 WriteLine(
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "ERR: " : string.Empty) +
