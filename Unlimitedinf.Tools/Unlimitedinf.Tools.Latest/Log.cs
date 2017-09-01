@@ -68,6 +68,18 @@ namespace Unlimitedinf.Tools
             Error
         }
 
+        /// <summary>
+        /// My preferred settings for small console apps. Call this at the beginning of the main method.
+        /// </summary>
+        public static void ConfigureDefaultConsoleApp()
+        {
+            WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), ConsoleColor.Blue);
+            PrintDateTime = true;
+            DateTimeFormat = "HH:mm:ss.fff";
+            PrintVerbosityLevel = false;
+            Verbosity = VerbositySetting.Verbose;
+        }
+
         private static void WriteLine(string message, ConsoleColor color = DefaultConsoleColor)
         {
             lock(consoleLock)
