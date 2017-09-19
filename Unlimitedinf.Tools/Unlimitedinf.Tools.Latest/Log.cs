@@ -71,9 +71,15 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// My preferred settings for small console apps. Call this at the beginning of the main method.
         /// </summary>
+        /// <remarks>
+        /// Logs the following line verbosely right away:
+        ///     yyyy-MM-dd HH:mm:ss.fff: Program start
+        /// Then sets the <see cref="DateTimeFormat"/> to <c>HH:mm:ss.fff</c> with <see cref="PrintDateTime"/> true.
+        /// Then sets the <see cref="Verbosity"/> to <see cref="VerbositySetting.Verbose"/> with <see cref="PrintVerbosityLevel"/> false.
+        /// </remarks>
         public static void ConfigureDefaultConsoleApp()
         {
-            WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), ConsoleColor.Blue);
+            Log.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + ": Program start", ConsoleColor.Blue);
             PrintDateTime = true;
             DateTimeFormat = "HH:mm:ss.fff";
             PrintVerbosityLevel = false;
@@ -101,7 +107,7 @@ namespace Unlimitedinf.Tools
         public static void Ver(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
             if (Verbosity <= VerbositySetting.Verbose)
-                WriteLine(
+                Log.WriteLine(
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "VER: " : string.Empty) +
                     (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
@@ -128,7 +134,7 @@ namespace Unlimitedinf.Tools
         public static void Inf(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
             if (Verbosity <= VerbositySetting.Informational)
-                WriteLine(
+                Log.WriteLine(
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "INF: " : string.Empty) +
                     (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
@@ -163,7 +169,7 @@ namespace Unlimitedinf.Tools
         public static void Wrn(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
             if (Verbosity <= VerbositySetting.Warning)
-                WriteLine(
+                Log.WriteLine(
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "WRN: " : string.Empty) +
                     (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
@@ -198,7 +204,7 @@ namespace Unlimitedinf.Tools
         public static void Err(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
         {
             if (Verbosity <= VerbositySetting.Error)
-                WriteLine(
+                Log.WriteLine(
                     (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
                     (printVerbosityLevel ?? PrintVerbosityLevel ? "ERR: " : string.Empty) +
                     (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
