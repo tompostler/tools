@@ -30,8 +30,19 @@ Currently just contains `Unlimitedinf.Tools.dll`.
 
 |Function|Description|
 |:--|:--|
-|`double Median<T>(this IEnumerable<T> source)`|Extension method to calculate the median of an `IEnumerable` whose elements can be `Convert.ToDouble`|
-|`bool TryParseRelativeDateTime(this string toParse, out DateTime result)`|Given a string, treat it as an engligh-formatted relative datetime and attempt to parse an actual datetime out|
+|`double Median<T>(this IEnumerable<T> source)`|Calculate the median of an `IEnumerable` whose elements can be `Convert.ToDouble`|
+
+### `StringExtensions`
+
+This class contains a lot of extension methods for strings. Assume that there is an implied `this string input` parameter for each method below.
+
+|Function|Description|
+|:--|:--|
+|`string Chop(int length)`|Alias for `input.Substring(0,length)`|
+|`string FromBase64String()`|Convert a valid Base64 string back to text.|
+|`string GetHashCode*()`|Based on the name of `*`, get the corresponding hash code for the string.|
+|`string ToBase64String()`|Convert text to a Base64 string.|
+|`bool TryParseRelativeDateTime(out DateTime result)`|Given a string, treat it as an engligh-formatted relative datetime and attempt to parse an actual datetime out|
 
 ## Unlimitedinf.Tools.Numerics
 
