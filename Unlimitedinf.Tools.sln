@@ -5,10 +5,17 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools", "Unlimitedinf.Tools\Unlimitedinf.Tools.Latest\Unlimitedinf.Tools.csproj", "{A58098C7-2467-4220-A485-59B80EBB12FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.IntTests", "Unlimitedinf.Tools.IntTests\Unlimitedinf.Tools.IntTests.csproj", "{9F931860-92AB-4B45-81F7-8774F9C194CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Latest\Unlimitedinf.Tools.Numerics.csproj", "{A17BBB82-5A8C-45E9-81C1-287908728266}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Statics", "Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Latest\Unlimitedinf.Tools.Statics.csproj", "{FBD2CCB8-32B7-4581-A9F2-3D1D33F742FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.UnitTests", "Unlimitedinf.Tools.UnitTests\Unlimitedinf.Tools.UnitTests.csproj", "{A03E19C8-CA03-4DD7-95BE-5E1DEE5EE7DA}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F362E671-015F-475E-BBA9-E387CB8EB952}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		before.Unlimitedinf.Tools.sln.targets = before.Unlimitedinf.Tools.sln.targets
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 		LICENSE = LICENSE
 		LocalAssemblyInfo.ps1 = LocalAssemblyInfo.ps1
@@ -16,12 +23,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 		unlimitedinf.ico = unlimitedinf.ico
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.UnitTests", "Unlimitedinf.Tools.UnitTests\Unlimitedinf.Tools.UnitTests.csproj", "{A03E19C8-CA03-4DD7-95BE-5E1DEE5EE7DA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Statics", "Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Latest\Unlimitedinf.Tools.Statics.csproj", "{FBD2CCB8-32B7-4581-A9F2-3D1D33F742FA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.IntTests", "Unlimitedinf.Tools.IntTests\Unlimitedinf.Tools.IntTests.csproj", "{9F931860-92AB-4B45-81F7-8774F9C194CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unlimitedinf.Tools.Packages", "Unlimitedinf.Tools.Packages", "{78B4AC7D-5654-4268-80F5-B345C9B5AC53}"
 	ProjectSection(SolutionItems) = preProject
@@ -36,27 +37,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unlimitedinf.Tools.Packages
 		Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.xml = Unlimitedinf.Tools.Packages\Unlimitedinf.Tools.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Latest\Unlimitedinf.Tools.Numerics.csproj", "{A17BBB82-5A8C-45E9-81C1-287908728266}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Net45", "Unlimitedinf.Tools\Unlimitedinf.Tools.Net45\Unlimitedinf.Tools.Net45.csproj", "{51A48765-D3A8-4949-A1FE-72395C2709E0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Old Framework Projects", "Old Framework Projects", "{CF577F25-809D-4702-A854-21748A2DC113}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Net40", "Unlimitedinf.Tools\Unlimitedinf.Tools.Net40\Unlimitedinf.Tools.Net40.csproj", "{2BA9ABDC-12EF-4809-9C14-5CA56261CFAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Net45", "Unlimitedinf.Tools\Unlimitedinf.Tools.Net45\Unlimitedinf.Tools.Net45.csproj", "{51A48765-D3A8-4949-A1FE-72395C2709E0}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Net46", "Unlimitedinf.Tools\Unlimitedinf.Tools.Net46\Unlimitedinf.Tools.Net46.csproj", "{B2AD993E-3BF0-47E5-A1E6-B38231F9AB3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Statics.Net46", "Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Net46\Unlimitedinf.Tools.Statics.Net46.csproj", "{ABF6608C-7772-4172-BC8E-A4583E693BE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Net462", "Unlimitedinf.Tools\Unlimitedinf.Tools.Net462\Unlimitedinf.Tools.Net462.csproj", "{B10D296F-9CDA-433F-9A53-EC94A4312013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics.Net40", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Net40\Unlimitedinf.Tools.Numerics.Net40.csproj", "{21EC137A-5ED6-4DA0-B624-7D57B35B98E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics.Net45", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Net45\Unlimitedinf.Tools.Numerics.Net45.csproj", "{34A758A6-1B13-4C81-ABAF-902C93AD6A71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics.Net46", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Net46\Unlimitedinf.Tools.Numerics.Net46.csproj", "{084E89A0-BA6A-47F8-9189-649C5A6A16F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics.Net462", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Net462\Unlimitedinf.Tools.Numerics.Net462.csproj", "{A6DF070E-659D-4BC2-8808-59EE2C1C096D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Statics.Net40", "Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Net40\Unlimitedinf.Tools.Statics.Net40.csproj", "{24DCE8FF-526C-4F39-8CC4-C09347709AD2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Statics.Net45", "Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Net45\Unlimitedinf.Tools.Statics.Net45.csproj", "{45D86837-16C4-435E-8080-AB1923ABABC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics.Net46", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Net46\Unlimitedinf.Tools.Numerics.Net46.csproj", "{084E89A0-BA6A-47F8-9189-649C5A6A16F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Statics.Net46", "Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Net46\Unlimitedinf.Tools.Statics.Net46.csproj", "{ABF6608C-7772-4172-BC8E-A4583E693BE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics.Net45", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Net45\Unlimitedinf.Tools.Numerics.Net45.csproj", "{34A758A6-1B13-4C81-ABAF-902C93AD6A71}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Numerics.Net40", "Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Net40\Unlimitedinf.Tools.Numerics.Net40.csproj", "{21EC137A-5ED6-4DA0-B624-7D57B35B98E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlimitedinf.Tools.Statics.Net462", "Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Net462\Unlimitedinf.Tools.Statics.Net462.csproj", "{417C3FA1-0A8E-46C8-A919-454E985958F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuprojs", "Nuprojs", "{5289023C-1EE5-4D02-9219-5A80533876D8}"
 	ProjectSection(SolutionItems) = preProject
@@ -125,6 +130,18 @@ Global
 		{21EC137A-5ED6-4DA0-B624-7D57B35B98E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21EC137A-5ED6-4DA0-B624-7D57B35B98E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21EC137A-5ED6-4DA0-B624-7D57B35B98E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B10D296F-9CDA-433F-9A53-EC94A4312013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B10D296F-9CDA-433F-9A53-EC94A4312013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B10D296F-9CDA-433F-9A53-EC94A4312013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B10D296F-9CDA-433F-9A53-EC94A4312013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6DF070E-659D-4BC2-8808-59EE2C1C096D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6DF070E-659D-4BC2-8808-59EE2C1C096D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6DF070E-659D-4BC2-8808-59EE2C1C096D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6DF070E-659D-4BC2-8808-59EE2C1C096D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{417C3FA1-0A8E-46C8-A919-454E985958F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{417C3FA1-0A8E-46C8-A919-454E985958F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{417C3FA1-0A8E-46C8-A919-454E985958F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{417C3FA1-0A8E-46C8-A919-454E985958F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,5 +157,8 @@ Global
 		{34A758A6-1B13-4C81-ABAF-902C93AD6A71} = {CF577F25-809D-4702-A854-21748A2DC113}
 		{21EC137A-5ED6-4DA0-B624-7D57B35B98E2} = {CF577F25-809D-4702-A854-21748A2DC113}
 		{5289023C-1EE5-4D02-9219-5A80533876D8} = {78B4AC7D-5654-4268-80F5-B345C9B5AC53}
+		{B10D296F-9CDA-433F-9A53-EC94A4312013} = {CF577F25-809D-4702-A854-21748A2DC113}
+		{A6DF070E-659D-4BC2-8808-59EE2C1C096D} = {CF577F25-809D-4702-A854-21748A2DC113}
+		{417C3FA1-0A8E-46C8-A919-454E985958F1} = {CF577F25-809D-4702-A854-21748A2DC113}
 	EndGlobalSection
 EndGlobal

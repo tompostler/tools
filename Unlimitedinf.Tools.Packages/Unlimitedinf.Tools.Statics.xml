@@ -2,10 +2,14 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Configuration">
     
-    <LastUpdated>2017-03-21</LastUpdated>
-    <Version>3.0.1</Version>
+    <LastUpdated>2017-10-02</LastUpdated>
+    <Version>3.1.0</Version>
     
     <ReleaseNotes>
+3.1.0
+
+  - Added net47 version.
+
 3.0.1
 
   - Added builds for net40, net45, net46, and latest.

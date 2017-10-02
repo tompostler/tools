@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\NuProj.0.11.30\build\NuProj.props" Condition="Exists('..\..\packages\NuProj.0.11.30\build\NuProj.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A58098C7-2467-4220-A485-59B80EBB12FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Unlimitedinf.Tools</RootNamespace>
     <AssemblyName>Unlimitedinf.Tools</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -50,22 +48,46 @@
     <Reference Include="System.Runtime.Caching" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IO\FileSystemCollection.cs" />
-    <Compile Include="Log.cs" />
-    <Compile Include="StringExtensions.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="GenerateRandom.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Hashing\Blockhash.cs" />
-    <Compile Include="Hashing\Crc32.cs" />
-    <Compile Include="Hashing\Hasher.cs" />
-    <Compile Include="Id.cs" />
-    <Compile Include="IO\ThrottledStream.cs" />
-    <Compile Include="SemVer.cs" />
-    <Compile Include="Properties\LocalAssemblyInfo.cs" />
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\Extensions.cs">
+      <Link>Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\GenerateRandom.cs">
+      <Link>GenerateRandom.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\Hashing\Blockhash.cs">
+      <Link>Hashing\Blockhash.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\Hashing\Crc32.cs">
+      <Link>Hashing\Crc32.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\Hashing\Hasher.cs">
+      <Link>Hashing\Hasher.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\Id.cs">
+      <Link>Id.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\IO\FileSystemCollection.cs">
+      <Link>IO\FileSystemCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\IO\ThrottledStream.cs">
+      <Link>IO\ThrottledStream.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\Log.cs">
+      <Link>Log.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\SemVer.cs">
+      <Link>SemVer.cs</Link>
+    </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\StringExtensions.cs">
+      <Link>StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="Properties\LocalAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\unlimitedinf.ico">
@@ -80,12 +102,11 @@
   <PropertyGroup>
     <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1 $(ProjectDir) $(AssemblyName)"</PreBuildEvent>
   </PropertyGroup>
+  <Import Project="..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets" Condition="Exists('..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\NuProj.0.11.30\build\NuProj.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NuProj.0.11.30\build\NuProj.props'))" />
     <Error Condition="!Exists('..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets'))" />
   </Target>
-  <Import Project="..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets" Condition="Exists('..\..\packages\NuProj.Common.0.11.30\build\dotnet\NuProj.Common.targets')" />
 </Project>

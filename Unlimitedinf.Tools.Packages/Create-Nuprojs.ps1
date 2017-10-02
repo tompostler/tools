@@ -26,6 +26,7 @@ foreach ($packageId in $packageIds) {
     <ProjectReference Include="..\$packageId\$packageId.Net40\$packageId.Net40.csproj" />
     <ProjectReference Include="..\$packageId\$packageId.Net45\$packageId.Net45.csproj" />
     <ProjectReference Include="..\$packageId\$packageId.Net46\$packageId.Net46.csproj" />
+    <ProjectReference Include="..\$packageId\$packageId.Net462\$packageId.Net462.csproj" />
   </ItemGroup>
   <Import Project="`$(NuProjPath)\NuProj.targets" Condition="Exists('`$(NuProjPath)\NuProj.targets')" />
 </Project>

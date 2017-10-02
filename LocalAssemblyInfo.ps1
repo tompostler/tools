@@ -58,7 +58,7 @@ using System.Reflection;
 [assembly: AssemblyFileVersion("{0}.{1}.{2}.{3}")]
 "@ -f $Major, $Minor, $Patch, $Prerelease > "$ProjectDir\Properties\LocalAssemblyInfo.cs";
 
-Write-Host "Generated local assembly info.";
+Write-Host ("Generated local assembly info for $($ProjectDir.Substring($ProjectDir.LastIndexOf('\', $ProjectDir.Length - 2))) with version {0}.{1}.{2}.{3}" -f $Major, $Minor, $Patch, $Prerelease);
 
 # Restore CWD
 Pop-Location
