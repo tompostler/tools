@@ -82,6 +82,9 @@
     <Compile Include="..\Unlimitedinf.Tools.Latest\Log.cs">
       <Link>Log.cs</Link>
     </Compile>
+    <Compile Include="..\Unlimitedinf.Tools.Latest\Parsing\ExpressionParser.cs">
+      <Link>Parsing\ExpressionParser.cs</Link>
+    </Compile>
     <Compile Include="..\Unlimitedinf.Tools.Latest\SemVer.cs">
       <Link>SemVer.cs</Link>
     </Compile>

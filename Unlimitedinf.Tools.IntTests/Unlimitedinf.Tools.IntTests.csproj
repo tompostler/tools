@@ -61,6 +61,7 @@
     <Compile Include="Numerics\Int32\Int32ExtensionsTests.cs" />
     <Compile Include="Numerics\Int64\Int64ExtensionsTests.cs" />
     <None Include="packages.config" />
+    <Compile Include="Parsing\ExpressionParserTests.cs" />
     <Compile Include="SemVerTests.cs" />
     <None Include="StringExtensionsTests.ps1" />
     <Compile Include="StringExtensionsTests.cs" />

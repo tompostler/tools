@@ -44,6 +44,14 @@ This class contains a lot of extension methods for strings. Assume that there is
 |`string ToBase64String()`|Convert text to a Base64 string.|
 |`bool TryParseRelativeDateTime(out DateTime result)`|Given a string, treat it as an engligh-formatted relative datetime and attempt to parse an actual datetime out|
 
+### `Parsing.ExpressionParser`
+
+This class contains an extension method for strings. Assume that there is an implied `this string input` parameter for the method below.
+
+|Function|Description|
+|:--|:--|
+|`string EvaluateAsExpression()`|Take a simple mathematical expression and return a `double` result.|
+
 ## Unlimitedinf.Tools.Numerics
 
 _The ruff tuff number-crunchin maniac nuget package_
