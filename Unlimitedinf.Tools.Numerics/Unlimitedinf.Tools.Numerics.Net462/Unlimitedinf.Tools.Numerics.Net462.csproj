@@ -4,6 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{bda83750-a04e-4b7d-8767-a117cc77e39c}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Unlimitedinf.Tools.Numerics</RootNamespace>
@@ -63,9 +64,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Net46\Unlimitedinf.Tools.Statics.Net46.csproj">
-      <Project>{abf6608c-7772-4172-bc8e-a4583e693be0}</Project>
-      <Name>Unlimitedinf.Tools.Statics.Net46</Name>
+    <ProjectReference Include="..\..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Net462\Unlimitedinf.Tools.Statics.Net462.csproj">
+      <Project>{f2b534e6-0a78-4c78-849d-e0013d30be77}</Project>
+      <Name>Unlimitedinf.Tools.Statics.Net462</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
