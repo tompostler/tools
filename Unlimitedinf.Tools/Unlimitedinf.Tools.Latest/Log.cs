@@ -219,5 +219,35 @@ namespace Unlimitedinf.Tools
         /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         public static void Error(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
             => Err(message, printDateTime, printVerbosityLevel, printProgramName);
+
+        /// <summary>
+        /// Print one character at a time like a typewriter. Will grab the lock for the whole time, and prints in default console color.
+        /// Verbosity is 'TYP:'.
+        /// </summary>
+        /// <param name="message">The message to log.</param>
+        /// <param name="delay">The delay between each character printing. Default is 10ms.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void LikeATypewriter(string message, TimeSpan delay = default(TimeSpan), bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+        {
+            if (delay == default(TimeSpan))
+                delay = TimeSpan.FromMilliseconds(10);
+
+            message = (printDateTime ?? PrintDateTime ? DateTime.Now.ToString(DateTimeFormat) + ": " : string.Empty) +
+                    (printVerbosityLevel ?? PrintVerbosityLevel ? "TYP: " : string.Empty) +
+                    (printProgramName ?? PrintProgramName ? ProgramName + ": " : string.Empty) +
+                    message;
+
+            lock (consoleLock)
+            {
+                foreach (char ch in message)
+                {
+                    Console.Write(ch);
+                    System.Threading.Thread.Sleep(delay);
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
