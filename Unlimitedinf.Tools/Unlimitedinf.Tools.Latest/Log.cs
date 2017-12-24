@@ -221,6 +221,11 @@ namespace Unlimitedinf.Tools
             => Err(message, printDateTime, printVerbosityLevel, printProgramName);
 
         /// <summary>
+        /// Logs an empty line.
+        /// </summary>
+        public static void Line() => WriteLine(string.Empty);
+
+        /// <summary>
         /// Print one character at a time like a typewriter. Will grab the lock for the whole time, and prints in default console color.
         /// Verbosity is 'TYP:'.
         /// </summary>
