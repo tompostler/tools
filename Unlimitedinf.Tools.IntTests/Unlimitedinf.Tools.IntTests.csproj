@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,6 +37,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -70,29 +72,20 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Properties\LocalAssemblyInfo.cs" />
-    <Compile Include="..\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.Latest\Unlimitedinf.Tools.Numerics.csproj">
-      <Project>{a17bbb82-5a8c-45e9-81c1-287908728266}</Project>
+    <ProjectReference Include="..\Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.csproj">
+      <Project>{1d1de0c2-03c6-4f39-a7a0-2841c1db5884}</Project>
       <Name>Unlimitedinf.Tools.Numerics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Unlimitedinf.Tools.Statics\Unlimitedinf.Tools.Statics.Latest\Unlimitedinf.Tools.Statics.csproj">
-      <Project>{fbd2ccb8-32b7-4581-a9f2-3d1d33f742fa}</Project>
-      <Name>Unlimitedinf.Tools.Statics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.Latest\Unlimitedinf.Tools.csproj">
-      <Project>{a58098c7-2467-4220-a485-59b80ebb12fd}</Project>
+    <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj">
+      <Project>{212fcc70-1a71-4bd1-8313-19f5e0077cd7}</Project>
       <Name>Unlimitedinf.Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>powershell "$(SolutionDir)LocalAssemblyInfo.ps1 $(ProjectDir) $(AssemblyName)"
-powershell "$(ProjectDir)StringExtensionsTests.ps1"</PreBuildEvent>
+    <PreBuildEvent>powershell "$(ProjectDir)StringExtensionsTests.ps1"</PreBuildEvent>
   </PropertyGroup>
 </Project>

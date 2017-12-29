@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net47;net462;net46;net45;net40</TargetFrameworks>
+    <AssemblyName>Unlimitedinf.Tools</AssemblyName>
+    <RootNamespace>Unlimitedinf.Tools</RootNamespace>
+    <ApplicationIcon>..\unlimitedinf.ico</ApplicationIcon>
+    <DocumentationFile>$(BaseOutputPath)\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Authors>UnlimitedInf</Authors>
+    <Company>UnlimitedInf</Company>
+    <Product>UnlimitedInf Tools</Product>
+    <Copyright>Copyright © UnlimitedInf (Tom Postler) 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/tompostler/tools/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/tompostler/tools</PackageProjectUrl>
+    <PackageIconUrl>https://unlimitedinf.com/files/unlimitedinf/unlimitedinf.ico</PackageIconUrl>
+    <RepositoryUrl>https://github.com/tompostler/tools</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>tools unlimitedinf semver log</PackageTags>
+    <Description>A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
+
+See source README for full explanation.</Description>
+    <Version>3.5.2</Version>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <PackageReleaseNotes>3.5.2
+  - Convert to dotnet CLI. It looks like https://github.com/dotnet/corefx/issues/14529 will bring in the cache pieces missing, but the use of Image for blockhash presents a different problem.
+
+3.5.1
+  - Log needed a way to write an empty line.
+
+3.5.0
+  - Added Log.LikeATypewriter out of boredom.
+
+3.4.0
+  - Added basic math expression parsing.
+
+3.3.0
+  - Added net47 version.
+
+3.2.*
+  - Default log configuration method updated after mood swing.
+  - Method added to log for default configuration.
+  - Bugfix to Log.
+  - Enhancements to Log.
+  - Added Log to provide the custom logging that I tend to use across all my projects.
+  - Added FileSystemCollection to enumerate files/directories with an enumerable that gracefully ignores exceptions thrown during usage.
+
+3.0.*
+  - Reuse the RNGCryptoServiceProvider in GenerateRandom for a security and performance increase.
+  - Added in StringExtensions: ToBase64String, FromBase64String, Chop
+  - Fixed a bug in TryParseRelativeDateTime that threw instead of returned false for above int.Max. Now will only throw for above long.MaxValue.
+  - Added builds for net40, net45, net46, and latest.
+  - Fixed a bug in String.TrypParseRelativeDateTime that could throw an ArgumentOutOfRangeException.
+  - Added the String.GetHashCode* methods because they're easier to consume.
+  - Added new String.GetHashCode extension.
+  - Broke apart the original package based on dependencies.
+  - Remove t4 templating artifacts because powershell is much easier to work with.
+  - Other vaious tune-ups and changes all over.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Runtime.Caching" />
+  </ItemGroup>
+
+</Project>

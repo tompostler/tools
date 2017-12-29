@@ -1,3 +1,0 @@
-Unlimitedinf.Tools
-Unlimitedinf.Tools.Numerics
-Unlimitedinf.Tools.Statics

@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net47;net462;net46;net45;net40</TargetFrameworks>
+    <AssemblyName>Unlimitedinf.Tools.Statics</AssemblyName>
+    <RootNamespace>Unlimitedinf.Tools.Statics</RootNamespace>
+    <ApplicationIcon>..\unlimitedinf.ico</ApplicationIcon>
+    <DocumentationFile>$(BaseOutputPath)\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Authors>UnlimitedInf</Authors>
+    <Company>UnlimitedInf</Company>
+    <Product>UnlimitedInf Tools Statics</Product>
+    <Copyright>Copyright © UnlimitedInf (Tom Postler) 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/tompostler/tools/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/tompostler/tools</PackageProjectUrl>
+    <PackageIconUrl>https://unlimitedinf.com/files/unlimitedinf/unlimitedinf.ico</PackageIconUrl>
+    <RepositoryUrl>https://github.com/tompostler/tools</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>tools unlimitedinf statics primes</PackageTags>
+    <Description>Contains the prime numbers below one million.</Description>
+    <Version>3.1.1</Version>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <PackageReleaseNotes>3.1.1
+  - Convert to dotnet CLI.
+
+3.1.0
+  - Added net47 version.
+
+3.0.*
+  - Added builds for net40, net45, net46, and latest.
+  - Broke apart the original package based on dependencies.
+  - Added the prime integers from 2 to 1000003, inclusive, as an unordered set and an ordered array.</PackageReleaseNotes>
+  </PropertyGroup>
+
+</Project>
