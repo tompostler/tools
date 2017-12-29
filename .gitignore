@@ -67,8 +67,4 @@ orleans.codegen.cs
 FakesAssemblies/
 
 # Generated files
-LocalAssemblyInfo.cs
-*.generated.cs
-*.nuproj
-Unlimitedinf.Tools.Packages/alreadypublished
-UpgradeLog.htm
+*.g.cs

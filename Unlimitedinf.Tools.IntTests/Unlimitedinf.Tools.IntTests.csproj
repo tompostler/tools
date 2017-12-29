@@ -1,91 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9F931860-92AB-4B45-81F7-8774F9C194CD}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Unlimitedinf.Tools.IntTests</RootNamespace>
+    <TargetFramework>net47</TargetFramework>
     <AssemblyName>Unlimitedinf.Tools.IntTests</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
-    <IsCodedUITest>False</IsCodedUITest>
-    <TestProjectType>UnitTest</TestProjectType>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
+    <RootNamespace>Unlimitedinf.Tools.IntTests</RootNamespace>
+    <ApplicationIcon>..\unlimitedinf.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet />
-  </PropertyGroup>
+  
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
+    <PackageReference Include="NuGet.Core" Version="2.14.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="AssemblySetup.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="GenerateRandomTests.cs" />
-    <Compile Include="Hashing\HashingTests.cs" />
-    <Compile Include="Helpers.cs" />
-    <Compile Include="IdTests.cs" />
-    <Compile Include="Numerics\Int32\Int32ExtensionsTests.cs" />
-    <Compile Include="Numerics\Int64\Int64ExtensionsTests.cs" />
-    <None Include="packages.config" />
-    <Compile Include="Parsing\ExpressionParserTests.cs" />
-    <Compile Include="SemVerTests.cs" />
-    <None Include="StringExtensionsTests.ps1" />
-    <Compile Include="StringExtensionsTests.cs" />
-    <Compile Include="StringExtensionsTests.generated.cs">
-      <DependentUpon>StringExtensionsTests.ps1</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <ProjectReference Include="..\Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.csproj" />
+    <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Unlimitedinf.Tools.Numerics\Unlimitedinf.Tools.Numerics.csproj">
-      <Project>{1d1de0c2-03c6-4f39-a7a0-2841c1db5884}</Project>
-      <Name>Unlimitedinf.Tools.Numerics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Unlimitedinf.Tools\Unlimitedinf.Tools.csproj">
-      <Project>{212fcc70-1a71-4bd1-8313-19f5e0077cd7}</Project>
-      <Name>Unlimitedinf.Tools</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>powershell "$(ProjectDir)StringExtensionsTests.ps1"</PreBuildEvent>
-  </PropertyGroup>
+  
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="powershell &quot;$(ProjectDir)StringExtensionsTests.ps1&quot;" />
+  </Target>
+
 </Project>

@@ -1,4 +1,4 @@
-﻿$fileName = Join-Path $PSScriptRoot "StringExtensionsTests.generated.cs";
+﻿$fileName = Join-Path $PSScriptRoot "StringExtensionsTests.g.cs";
 Write-Host "Generating $fileName";
 
 # File setup
