@@ -5,7 +5,7 @@ _Organized by package/dll_
 #### Badges!
 |Wut|Badge|
 |:--|:-:|
-|Build (+tests) on VSTS|![Build on VSTS](https://tompostler.visualstudio.com/_apis/public/build/definitions/59d5d8a6-84be-41a0-b43a-6b99271c20fb/4/badge)|
+|Build (+tests) on VSTS|![Build on VSTS](https://tompostler.visualstudio.com/_apis/public/build/definitions/59d5d8a6-84be-41a0-b43a-6b99271c20fb/15/badge)|
 |`Unlimitedinf.Tools`|[![Unlimitedinf.Tools NuGet](https://img.shields.io/nuget/v/Unlimitedinf.Tools.svg?style=flat-square)](https://www.nuget.org/packages/Unlimitedinf.Tools/)|
 |`Unlimitedinf.Tools.Statics`|[![Unlimitedinf.Tools.Statics NuGet](https://img.shields.io/nuget/v/Unlimitedinf.Tools.Statics.svg?style=flat-square)](https://www.nuget.org/packages/Unlimitedinf.Tools.Statics/)|
 |`Unlimitedinf.Tools.Numerics`|[![Unlimitedinf.Tools.Numerics NuGet](https://img.shields.io/nuget/v/Unlimitedinf.Tools.Numerics.svg?style=flat-square)](https://www.nuget.org/packages/Unlimitedinf.Tools.Numerics/)|
