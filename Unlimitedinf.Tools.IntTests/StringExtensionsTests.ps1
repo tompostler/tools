@@ -41,7 +41,7 @@ $testCases = @(
     ("Mins_Plus_2s",    "Minutes(2)",                       "2 mins"),
     ("Secs_Plus_3",     "Seconds(3)",                       "3 sec"),
     ("Years_Minus_1k",  "Years(-1000)",                     "1000 years ago"),
-    ("Years_Minus_Cm1", "Years(-DateTime.UtcNow.Year+1)",   "2016 years ago"),
+    ("Years_Minus_Cm1", "Years(-2016)",                     "2016 years ago"),
     ("Months_Minus_5k", "Months(-5000)",                    "5000 months ago"),
     ("YMWDHMS_Minus_1s","Years(-1).AddMonths(-1).AddDays(-8).AddHours(-1).AddMinutes(-1).AddSeconds(-1)", "1 year, 1 month, 1 week, 1 day, 1 hour, 1 minute, and 1 second ago")
 )

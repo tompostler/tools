@@ -19,15 +19,14 @@
     <Description>A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
 
 See source README for full explanation.</Description>
-    <Version>3.5.2</Version>
+    <Version>3.6.0</Version>
     <AssemblyVersion>3.0.0.0</AssemblyVersion>
-    <PackageReleaseNotes>3.5.2
+    <PackageReleaseNotes>3.6.0
+  - Added Cards and CardHelpers
+
+3.5.*
   - Convert to dotnet CLI. It looks like https://github.com/dotnet/corefx/issues/14529 will bring in the cache pieces missing, but the use of Image for blockhash presents a different problem.
-
-3.5.1
   - Log needed a way to write an empty line.
-
-3.5.0
   - Added Log.LikeATypewriter out of boredom.
 
 3.4.0

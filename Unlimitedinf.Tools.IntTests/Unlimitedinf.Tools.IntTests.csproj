@@ -21,6 +21,7 @@
   
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="powershell &quot;$(ProjectDir)StringExtensionsTests.ps1&quot;" />
+    <Exec Command="powershell &quot;$(ProjectDir)Games\CardHelpersTests.ps1&quot;" />
   </Target>
 
 </Project>
