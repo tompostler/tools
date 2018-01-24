@@ -86,7 +86,7 @@ namespace Unlimitedinf.Tools
             Verbosity = VerbositySetting.Verbose;
         }
 
-        private static void WriteLine(string message, ConsoleColor color = DefaultConsoleColor)
+        internal static void WriteLine(string message, ConsoleColor color = DefaultConsoleColor)
         {
             lock(consoleLock)
             {
