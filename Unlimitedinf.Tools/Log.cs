@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Unlimitedinf.Tools
 {
@@ -117,12 +118,30 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Logs a verbose message that starts with 'VER: ' and is blue in color.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Ver(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Ver(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs a verbose message that starts with 'VER: ' and is blue in color.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
         /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         public static void Verbose(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
             => Ver(message, printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs a verbose message that starts with 'VER: ' and is blue in color.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Verbose(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Ver(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
 
         /// <summary>
         /// Logs an informational message that starts with 'INF: '.
@@ -143,6 +162,15 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Logs an informational message that starts with 'INF: '.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Inf(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Inf(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs an informational message that starts with 'INF: '.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
@@ -152,12 +180,30 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Logs an informational message that starts with 'INF: '.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Info(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Inf(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs an informational message that starts with 'INF: '.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
         /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         public static void Informational(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
             => Inf(message, printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs an informational message that starts with 'INF: '.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Informational(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Inf(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
 
         /// <summary>
         /// Logs a warning message that starts with 'WRN: ' and is yellow in color.
@@ -178,6 +224,15 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Logs a warning message that starts with 'WRN: ' and is yellow in color.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Wrn(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Wrn(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs a warning message that starts with 'WRN: ' and is yellow in color.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
@@ -187,12 +242,30 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Logs a warning message that starts with 'WRN: ' and is yellow in color.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Warn(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Wrn(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs a warning message that starts with 'WRN: ' and is yellow in color.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
         /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         public static void Warning(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
             => Wrn(message, printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs a warning message that starts with 'WRN: ' and is yellow in color.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Warning(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Wrn(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
 
         /// <summary>
         /// Logs an error message that starts with 'ERR: ' and is red in color.
@@ -213,12 +286,30 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Logs an error message that starts with 'ERR: ' and is red in color.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Err(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Err(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs an error message that starts with 'ERR: ' and is red in color.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
         /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
         /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
         public static void Error(string message, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
             => Err(message, printDateTime, printVerbosityLevel, printProgramName);
+        /// <summary>
+        /// Logs an error message that starts with 'ERR: ' and is red in color.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        /// <param name="printDateTime">Override default behavior of <see cref="PrintDateTime"/></param>
+        /// <param name="printVerbosityLevel">Override default behavior of <see cref="PrintVerbosityLevel"/></param>
+        /// <param name="printProgramName">Override default behavior of <see cref="PrintProgramName"/></param>
+        public static void Error(object obj, bool? printDateTime = null, bool? printVerbosityLevel = null, bool? printProgramName = null)
+            => Err(JsonConvert.SerializeObject(obj), printDateTime, printVerbosityLevel, printProgramName);
 
         /// <summary>
         /// Logs an empty line.

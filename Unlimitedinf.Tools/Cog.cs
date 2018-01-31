@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Unlimitedinf.Tools
 {
@@ -17,9 +18,21 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Log a default colored message.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Def(object obj)
+            => Def(JsonConvert.SerializeObject(obj));
+        /// <summary>
+        /// Log a default colored message.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         public static void Default(string message)
             => Def(message);
+        /// <summary>
+        /// Log a default colored message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Default(object obj)
+            => Def(JsonConvert.SerializeObject(obj));
 
         /// <summary>
         /// Log a <see cref="ConsoleColor.Gray"/> message.
@@ -30,9 +43,21 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Log a <see cref="ConsoleColor.Gray"/> message.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Gra(object obj)
+            => Gra(JsonConvert.SerializeObject(obj));
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Gray"/> message.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         public static void Gray(string message)
             => Gra(message);
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Gray"/> message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Gray(object obj)
+            => Gra(JsonConvert.SerializeObject(obj));
 
         /// <summary>
         /// Log a <see cref="ConsoleColor.DarkGray"/> message.
@@ -43,9 +68,21 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Log a <see cref="ConsoleColor.DarkGray"/> message.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void DGr(object obj)
+            => DGr(JsonConvert.SerializeObject(obj));
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.DarkGray"/> message.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         public static void DarkGray(string message)
             => DGr(message);
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.DarkGray"/> message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void DarkGray(object obj)
+            => DGr(JsonConvert.SerializeObject(obj));
 
         /// <summary>
         /// Log a <see cref="ConsoleColor.Blue"/> message.
@@ -56,9 +93,21 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Log a <see cref="ConsoleColor.Blue"/> message.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Blu(object obj)
+            => Blu(JsonConvert.SerializeObject(obj));
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Blue"/> message.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         public static void Blue(string message)
             => Blu(message);
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Blue"/> message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Blue(object obj)
+            => Blu(JsonConvert.SerializeObject(obj));
 
         /// <summary>
         /// Log a <see cref="ConsoleColor.Green"/> message.
@@ -69,9 +118,21 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Log a <see cref="ConsoleColor.Green"/> message.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Gre(object obj)
+            => Gre(JsonConvert.SerializeObject(obj));
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Green"/> message.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         public static void Green(string message)
             => Gre(message);
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Green"/> message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Green(object obj)
+            => Gre(JsonConvert.SerializeObject(obj));
 
         /// <summary>
         /// Log a <see cref="ConsoleColor.Cyan"/> message.
@@ -82,9 +143,21 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Log a <see cref="ConsoleColor.Cyan"/> message.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Cya(object obj)
+            => Cya(JsonConvert.SerializeObject(obj));
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Cyan"/> message.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         public static void Cyan(string message)
             => Cya(message);
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Cyan"/> message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Cyan(object obj)
+            => Cya(JsonConvert.SerializeObject(obj));
 
         /// <summary>
         /// Log a <see cref="ConsoleColor.Red"/> message.
@@ -92,6 +165,12 @@ namespace Unlimitedinf.Tools
         /// <param name="message">The message to log.</param>
         public static void Red(string message)
             => Log.WriteLine(message, ConsoleColor.Red);
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Red"/> message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Red(object obj)
+            => Red(JsonConvert.SerializeObject(obj));
 
         /// <summary>
         /// Log a <see cref="ConsoleColor.Magenta"/> message.
@@ -102,9 +181,21 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Log a <see cref="ConsoleColor.Magenta"/> message.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Mag(object obj)
+            => Mag(JsonConvert.SerializeObject(obj));
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Magenta"/> message.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         public static void Magenta(string message)
             => Mag(message);
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Magenta"/> message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Magenta(object obj)
+            => Mag(JsonConvert.SerializeObject(obj));
 
         /// <summary>
         /// Log a <see cref="ConsoleColor.Yellow"/> message.
@@ -115,9 +206,21 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Log a <see cref="ConsoleColor.Yellow"/> message.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Yel(object obj)
+            => Yel(JsonConvert.SerializeObject(obj));
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Yellow"/> message.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         public static void Yellow(string message)
             => Yel(message);
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.Yellow"/> message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Yellow(object obj)
+            => Yel(JsonConvert.SerializeObject(obj));
 
         /// <summary>
         /// Log a <see cref="ConsoleColor.White"/> message.
@@ -128,9 +231,21 @@ namespace Unlimitedinf.Tools
         /// <summary>
         /// Log a <see cref="ConsoleColor.White"/> message.
         /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void Whi(object obj)
+            => Whi(JsonConvert.SerializeObject(obj));
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.White"/> message.
+        /// </summary>
         /// <param name="message">The message to log.</param>
         public static void White(string message)
             => Whi(message);
+        /// <summary>
+        /// Log a <see cref="ConsoleColor.White"/> message.
+        /// </summary>
+        /// <param name="obj">The object to log with the default <see cref="JsonConvert.SerializeObject(object)"/>.</param>
+        public static void White(object obj)
+            => Whi(JsonConvert.SerializeObject(obj));
 
     }
 }
