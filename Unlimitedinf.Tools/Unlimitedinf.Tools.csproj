@@ -19,9 +19,12 @@
     <Description>A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
 
 See source README for full explanation.</Description>
-    <Version>3.6.2</Version>
+    <Version>3.6.3</Version>
     <AssemblyVersion>3.0.0.0</AssemblyVersion>
-    <PackageReleaseNotes>3.6.2
+    <PackageReleaseNotes>3.6.3
+  - Added Log.VerLine to break up verbose printing and not impact non-verbose printing.
+
+3.6.2
   - Enable Cog and Log to take an object and run it through the default JsonConvert.SerializeObject method from Netwonsoft.Json.
 
 3.6.1

@@ -317,6 +317,16 @@ namespace Unlimitedinf.Tools
         public static void Line() => WriteLine(string.Empty);
 
         /// <summary>
+        /// Logs an empty line, at the verbose level. This will not log a line if verbose printing is off, but would
+        /// aid in breaking up verbose output.
+        /// </summary>
+        public static void VerLine()
+        {
+            if (Verbosity <= VerbositySetting.Verbose)
+                WriteLine(string.Empty);
+        }
+
+        /// <summary>
         /// Print one character at a time like a typewriter. Will grab the lock for the whole time, and prints in default console color.
         /// Verbosity is 'TYP:'.
         /// </summary>
