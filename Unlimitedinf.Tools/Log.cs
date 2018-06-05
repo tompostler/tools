@@ -11,7 +11,7 @@ namespace Unlimitedinf.Tools
     ///     2017-04-20 03:14:15.927: INF: PROGRAMNAME: here's the message.
     /// Each portion of this message is customizable and can be turned on or off per invocation.
     /// </remarks>
-    public static class Log
+    public static partial class Log
     {
         private static object consoleLock = new object();
         private const ConsoleColor DefaultConsoleColor = ConsoleColor.Gray;

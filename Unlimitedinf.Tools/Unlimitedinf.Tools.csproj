@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net47;net462;net46;net45;net40</TargetFrameworks>
@@ -19,9 +19,12 @@
     <Description>A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
 
 See source README for full explanation.</Description>
-    <Version>3.6.3</Version>
+    <Version>3.7.0</Version>
     <AssemblyVersion>3.0.0.0</AssemblyVersion>
-    <PackageReleaseNotes>3.6.3
+    <PackageReleaseNotes>3.7.0
+  - Added Log.GetILogger for net47 flavor to get an ILogger out of the Log class.
+
+3.6.3
   - Added Log.VerLine to break up verbose printing and not impact non-verbose printing.
 
 3.6.2
@@ -67,6 +70,10 @@ See source README for full explanation.</Description>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework) == 'net47'">
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
