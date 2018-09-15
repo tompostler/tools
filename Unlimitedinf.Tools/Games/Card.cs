@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Unlimitedinf.Tools.Games
+﻿namespace Unlimitedinf.Tools.Games
 {
     /// <summary>
     /// Card number, where value is equal to the number position. Ace high.
@@ -36,8 +30,8 @@ namespace Unlimitedinf.Tools.Games
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         Clubs = 0x10,
         Diamonds = 0x20,
-        Hearts = 0x40,
-        Spades = 0x80
+        Hearts = 0x30,
+        Spades = 0x40
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 

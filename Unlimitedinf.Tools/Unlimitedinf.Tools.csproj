@@ -19,61 +19,19 @@
     <Description>A collection of tools I have found useful across more than one project. This nuget package will contain all the items (both C# and otherwise) that don't fit into any of my other packages.
 
 See source README for full explanation.</Description>
-    <Version>3.7.0</Version>
-    <AssemblyVersion>3.0.0.0</AssemblyVersion>
-    <PackageReleaseNotes>3.7.0
-  - Added Log.GetILogger for net47 flavor to get an ILogger out of the Log class.
-
-3.6.3
-  - Added Log.VerLine to break up verbose printing and not impact non-verbose printing.
-
-3.6.2
-  - Enable Cog and Log to take an object and run it through the default JsonConvert.SerializeObject method from Netwonsoft.Json.
-
-3.6.1
-  - Add Cog for Colorized Log output.
-
-3.6.0
-  - Added Cards and CardHelpers
-
-3.5.*
-  - Convert to dotnet CLI. It looks like https://github.com/dotnet/corefx/issues/14529 will bring in the cache pieces missing, but the use of Image for blockhash presents a different problem.
-  - Log needed a way to write an empty line.
-  - Added Log.LikeATypewriter out of boredom.
-
-3.4.0
-  - Added basic math expression parsing.
-
-3.3.0
-  - Added net47 version.
-
-3.2.*
-  - Default log configuration method updated after mood swing.
-  - Method added to log for default configuration.
-  - Bugfix to Log.
-  - Enhancements to Log.
-  - Added Log to provide the custom logging that I tend to use across all my projects.
-  - Added FileSystemCollection to enumerate files/directories with an enumerable that gracefully ignores exceptions thrown during usage.
-
-3.0.*
-  - Reuse the RNGCryptoServiceProvider in GenerateRandom for a security and performance increase.
-  - Added in StringExtensions: ToBase64String, FromBase64String, Chop
-  - Fixed a bug in TryParseRelativeDateTime that threw instead of returned false for above int.Max. Now will only throw for above long.MaxValue.
-  - Added builds for net40, net45, net46, and latest.
-  - Fixed a bug in String.TrypParseRelativeDateTime that could throw an ArgumentOutOfRangeException.
-  - Added the String.GetHashCode* methods because they're easier to consume.
-  - Added new String.GetHashCode extension.
-  - Broke apart the original package based on dependencies.
-  - Remove t4 templating artifacts because powershell is much easier to work with.
-  - Other vaious tune-ups and changes all over.</PackageReleaseNotes>
+    <Version>4.0.0</Version>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <PackageReleaseNotes>4.0.0
+  - Update package dependencies.
+  - Break: card values to not be flag-based.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net47'">
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
